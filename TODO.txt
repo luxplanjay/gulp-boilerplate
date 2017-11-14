@@ -1,0 +1,11 @@
+- копирование index.html из src в dist
+- веб сервер (browser-sync)
+- компиляция sass в css и копирование результата в dist (gulp-sass)
+- автопрефиксер (gulp-autoprefixer)
+- минификация результирующего css (gulp-cssnano)
+- комбинирование медиаправил (gulp-merge-media-queries)
+- копирование картинок в dist ./src/img/**/*.+(png|jpg|gif|svg)
+- копирование кастомных шрифтов в dist
+- очистка dist перед стартом сборки (del)
+- минификация результирующего html (gulp-htmlmin)
+- минификация картинок
