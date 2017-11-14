@@ -70,7 +70,11 @@ gulp.task('img', function () {
 // Таск копирования всех шрифтов из папки fonts в dist/fonts
 gulp.task('fonts', function () {
   return gulp.src('./src/fonts/**/*.*')
-    .pipe(gulp.dest('./dist/fonts'));
+    .pipe(gulp.dest('./dist/fonts'))
+    // Говорим browser-sync о том что пора перезагрузить барузер так как файл изменился
+    .pipe(browserSync.reload({
+      stream: true
+    }));
 });
 
 // Таск слежения за изменениями файлов
@@ -79,6 +83,10 @@ gulp.task('watch', function () {
   gulp.watch('./src/**/*.html', ['html']);
   // Следим за изменениями в любом sass файле и вызываем таск 'css' на каждом изменении
   gulp.watch('./src/sass/**/*.scss', ['css']);
+  // Следим за изменениями картинок и вызываем таск 'img' на каждом изменении
+  gulp.watch('./src/img/**/*.*', ['img']);
+  // Следим за изменениями в шрифтах и вызываем таск 'fonts' на каждом изменении
+  gulp.watch('./src/fonts/**/*.*', ['fonts']);
 });
 
 // Таск создания и запуска веб-сервера
