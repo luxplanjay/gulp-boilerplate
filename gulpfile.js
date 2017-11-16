@@ -58,7 +58,14 @@ gulp.task('img', function () {
   // Берем все картинки из папки img
   return gulp.src('./src/img/**/*.+(png|jpg|gif|svg)')
     // Пробуем оптимизировать
-    .pipe(imagemin())
+    .pipe(imagemin(
+      imagemin.svgo({
+        plugins: [
+            {removeViewBox: true},
+            {cleanupIDs: false}
+        ]
+      })
+    ))
     // Выкидываем в папку dist/img
     .pipe(gulp.dest('./dist/img'))
     // Говорим browser-sync о том что пора перезагрузить барузер так как файл изменился
