@@ -31,7 +31,7 @@ gulp.task('html', function () {
 // Создаем таск для сборки css файлов
 gulp.task('css', function () {
   // Берем только файл styles.scss в папке src, в который импортируеются паршалы
-  return gulp.src('./src/sass/styles.scss')
+  return gulp.src('./src/sass/main.scss')
     // Преобразовываем sass в css
     .pipe(sass().on('error', sass.logError))
     // Создаем вендорные префиксы
@@ -56,7 +56,7 @@ gulp.task('css', function () {
 // Создаем таск для оптимизации картинок
 gulp.task('img', function () {
   // Берем все картинки из папки img
-  return gulp.src('./src/img/**/*.+(png|jpg|gif|svg)')
+  return gulp.src('./src/images/**/*.+(png|jpg|gif|svg)')
     // Пробуем оптимизировать
     .pipe(imagemin(
       imagemin.svgo({
@@ -64,10 +64,9 @@ gulp.task('img', function () {
             {removeViewBox: true},
             {cleanupIDs: false}
         ]
-      })
-    ))
+      })))
     // Выкидываем в папку dist/img
-    .pipe(gulp.dest('./dist/img'))
+    .pipe(gulp.dest('./dist/images'))
     // Говорим browser-sync о том что пора перезагрузить барузер так как файл изменился
     .pipe(browserSync.reload({
       stream: true
@@ -91,7 +90,7 @@ gulp.task('watch', function () {
   // Следим за изменениями в любом sass файле и вызываем таск 'css' на каждом изменении
   gulp.watch('./src/sass/**/*.scss', ['css']);
   // Следим за изменениями картинок и вызываем таск 'img' на каждом изменении
-  gulp.watch('./src/img/**/*.*', ['img']);
+  gulp.watch('./src/images/**/*.*', ['img']);
   // Следим за изменениями в шрифтах и вызываем таск 'fonts' на каждом изменении
   gulp.watch('./src/fonts/**/*.*', ['fonts']);
 });
