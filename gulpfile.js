@@ -22,7 +22,7 @@ gulp.task('html', () => {
     }))
     // выкидываем html в папку dist
     .pipe(gulp.dest('./dist'))
-    // говорим browser-sync о том что пора перезагрузить барузер так как файл изменился
+    // говорим browser-sync о том что пора перезагрузить барузер, так как файл изменился
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -60,12 +60,9 @@ gulp.task('img', () => {
     // Пробуем оптимизировать
     .pipe(imagemin(
       imagemin.svgo({
-        plugins: [{
-            removeViewBox: true
-          },
-          {
-            cleanupIDs: false
-          }
+        plugins: [
+          { removeViewBox: true },
+          { cleanupIDs: false }
         ]
       })))
     // Выкидываем в папку dist/img
@@ -115,7 +112,7 @@ gulp.task('del:dist', () => {
   return del.sync('./dist');
 });
 
-// Таск который 1 раз собираем все статические файлы
+// Таск который 1 раз собирает все статические файлы
 gulp.task('build', ['html', 'css', 'img', 'fonts']);
 
 // Главный таск, сначала удаляет папку dist,
