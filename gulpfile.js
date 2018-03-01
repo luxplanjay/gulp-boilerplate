@@ -12,6 +12,7 @@ const htmlmin = require("gulp-htmlmin");
 const imagemin = require("gulp-imagemin");
 const plumber = require("gulp-plumber");
 const stylelint = require("gulp-stylelint");
+const rename = require("gulp-rename");
 const server = require("browser-sync").create();
 
 // Создаем таск для сборки html файлов
@@ -52,10 +53,14 @@ gulp.task("css", () => {
       .pipe(postcss([autoprefixer()]))
       // Группируем медиа правила
       .pipe(mmq({ log: false }))
+      // Выкидываем css в папку dist
+      .pipe(gulp.dest("./dist/css"))
       // Минифицируем css
       .pipe(cssnano())
-      // Выкидываем css в папку dist
-      .pipe(gulp.dest("./dist"))
+      // Переименовываем добавляя .min
+      .pipe(rename("styles.min.css"))
+      // Выкидываем минифицированный css в папку dist
+      .pipe(gulp.dest("./dist/css"))
       // Говорим browser-sync о том что пора перезагрузить барузер так как файл изменился
       .pipe(server.stream())
   );
