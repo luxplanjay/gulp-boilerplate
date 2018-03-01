@@ -70,9 +70,8 @@ gulp.task("img", () => {
       // Пробуем оптимизировать
       .pipe(
         imagemin([
-          imagemin.gifsicle({ interlaced: true }),
           imagemin.jpegtran({ progressive: true }),
-          imagemin.optipng({ optimizationLevel: 5 }),
+          imagemin.optipng({ optimizationLevel: 3 }),
           imagemin.svgo({
             plugins: [{ removeViewBox: false }, { cleanupIDs: false }]
           })
