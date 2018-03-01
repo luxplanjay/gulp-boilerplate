@@ -71,7 +71,7 @@ gulp.task("img", () => {
   // Берем все картинки из папки img
   return (
     gulp
-      .src("./src/img/**/*.+(png|jpg|svg)")
+      .src("./src/img/**/*.{png,jpg,svg}")
       // Пробуем оптимизировать
       .pipe(
         imagemin([
