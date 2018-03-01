@@ -10,6 +10,7 @@ const mmq = require("gulp-merge-media-queries");
 const del = require("del");
 const htmlmin = require("gulp-htmlmin");
 const imagemin = require("gulp-imagemin");
+const webp = require("gulp-webp");
 const plumber = require("gulp-plumber");
 const stylelint = require("gulp-stylelint");
 const rename = require("gulp-rename");
@@ -66,6 +67,14 @@ gulp.task("css", () => {
   );
 });
 
+// Переводим png и jpg в webP
+gulp.task("webp", () => {
+  return gulp
+    .src("./src/img/**/*.{png,jpg}")
+    .pipe(webp({ quality: 90 }))
+    .pipe(gulp.dest("./dist/img"));
+});
+
 // Создаем таск для оптимизации картинок
 gulp.task("img", () => {
   // Берем все картинки из папки img
@@ -107,7 +116,7 @@ gulp.task("watch", () => {
   // Следим за изменениями в любом sass файле и вызываем таск 'css' на каждом изменении
   gulp.watch("./src/sass/**/*.scss", ["css"]);
   // Следим за изменениями картинок и вызываем таск 'img' на каждом изменении
-  gulp.watch("./src/img/**/*.*", ["img"]);
+  gulp.watch("./src/img/**/*.*", ["webp", "img"]);
   // Следим за изменениями в шрифтах и вызываем таск 'fonts' на каждом изменении
   gulp.watch("./src/fonts/**/*.*", ["fonts"]);
 });
@@ -133,7 +142,7 @@ gulp.task("del:dist", () => {
 });
 
 // Таск который 1 раз собирает все статические файлы
-gulp.task("build", ["html", "css", "img", "fonts"]);
+gulp.task("build", ["html", "css", "webp", "img", "fonts"]);
 
 // Главный таск, сначала удаляет папку dist,
 // потом собирает статику, после чего поднимает сервер
