@@ -11,6 +11,7 @@ const del = require("del");
 const htmlmin = require("gulp-htmlmin");
 const imagemin = require("gulp-imagemin");
 const webp = require("gulp-webp");
+const svgstore = require("gulp-svgstore");
 const plumber = require("gulp-plumber");
 const stylelint = require("gulp-stylelint");
 const rename = require("gulp-rename");
@@ -72,6 +73,19 @@ gulp.task("webp", () => {
   return gulp
     .src("./src/img/**/*.{png,jpg}")
     .pipe(webp({ quality: 90 }))
+    .pipe(gulp.dest("./dist/img"));
+});
+
+// Создаем svg спрайт
+gulp.task("svg-sprite", () => {
+  return gulp
+    .src("./src/img/**/*.svg")
+    .pipe(
+      svgstore({
+        inlineSvg: true
+      })
+    )
+    .pipe(rename("sprite.svg"))
     .pipe(gulp.dest("./dist/img"));
 });
 

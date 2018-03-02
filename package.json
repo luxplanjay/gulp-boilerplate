@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "gulp start"
+    "start": "gulp start",
+    "sprite": "gulp svg-sprite"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-stylelint": "^6.0.0",
+    "gulp-svgstore": "^6.1.1",
     "gulp-webp": "^3.0.0",
     "stylelint": "^9.1.1"
   },
