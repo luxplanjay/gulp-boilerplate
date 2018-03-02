@@ -150,7 +150,7 @@ gulp.task("server", () => {
 
 // Таск удаления папки build, будем вызывать 1 раз перед началом сборки
 gulp.task("del:build", () => {
-  return del.sync("./build");
+  return del("./build");
 });
 
 // Главный таск для создания сборки в деплой,
