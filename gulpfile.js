@@ -77,7 +77,7 @@ gulp.task("css", () => {
 // Переводим png и jpg в webP
 gulp.task("webp", () => {
   return gulp
-    .src("./src/img/**/*.{png,jpg}")
+    .src("./src/img/**/*.{png,jpg,jpeg}")
     .pipe(webp({ quality: 90 }))
     .pipe(gulp.dest("./build/img"));
 });
@@ -100,7 +100,7 @@ gulp.task("images", () => {
   // Берем все картинки из папки img
   return (
     gulp
-      .src("./src/img/**/*.{png,jpg,svg}")
+      .src("./src/img/**/*.{png,jpg,jpeg,svg}")
       // Пробуем оптимизировать
       .pipe(
         imagemin([
