@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "gulp prepare",
     "start": "gulp start",
     "build": "gulp build",
     "svg-sprite": "gulp svg-sprite",
@@ -35,7 +36,6 @@
     "gulp-sass": "^3.1.0",
     "gulp-stylelint": "^6.0.0",
     "gulp-svgstore": "^6.1.1",
-    "gulp-webp": "^3.0.0",
     "posthtml-include": "^1.1.0",
     "run-sequence": "^2.2.1",
     "stylelint": "^9.1.1"
