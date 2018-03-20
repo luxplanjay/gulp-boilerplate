@@ -1,6 +1,6 @@
 # Gulp Starter Kit
 
-![banner.png](./banner.png)
+![banner.png](https://raw.githubusercontent.com/axzerk/gulp-starter-kit/master/banner.png)
 
 Базовая gulp-сборка для автоматизации верстки.
 
