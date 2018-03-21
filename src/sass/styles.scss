@@ -2,8 +2,7 @@
    Import partials below
 */
 @import "normalize";
+@import "variables";
 
-body {
-  background: #50463e;
-  color: #fff200;
-}
+// Blocks
+@import "header/index";
