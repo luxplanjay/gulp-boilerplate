@@ -3,6 +3,7 @@
 ![banner.png](./banner.png)
 
 * Able to assemble _html, sass, images, fonts_
+* Uses gulp-rigger to include html-chunks
 * Generates _svg sprite_
 * Uses _stylelint_ to lint _scss_
 * All errors are printed to the console
@@ -30,6 +31,6 @@
 * If u need svg sprite, put all svg files in **src/img/sprite**
 * All fonts need to go in **src/fonts** folder
 
-## Updated/Bugs
+## Updates/Bugs
 
 If you've found a bug or would like to propose an update, make a fork of this repo and open a pull request with some comments about an update.
