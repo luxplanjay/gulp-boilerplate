@@ -1,36 +1,35 @@
-# Gulp Starter Kit
+# Gulp Starter Kit - basic gulp boilerplate
 
 ![banner.png](./banner.png)
 
-Базовая gulp-сборка для автоматизации верстки.
+* Able to assemble _html, sass, images, fonts_
+* Generates _svg sprite_
+* Uses _stylelint_ to lint _scss_
+* All errors are printed to the console
+* Adds vendor prefixes
+* Optimizes images
+* Merges same media queries
+* Minifies build files
 
-* Умеет собирать _html, sass, изображения, шрифты_.
-* Собирает _svg-спрайт_.
-* Конвертирует _png и jpg_ в _webp_.
-* Использует _stylelint_ для контроля качества _css_.
-* Ошибки с пояснениями будут выведены в консоль.
-* Добавляет вендорные префиксы.
-* Сшивает одинаковые медиавыражения.
-* Минифицирует и оптимизирует результирующие файлы.
+## **[LTS version](https://nodejs.org/en/) of NodeJS is required**
 
-**Для работы, необходимо установить [LTS версию NodeJS](https://nodejs.org/en/)**
+## Usage
 
-## Использование
+* Download, clone or fork this repo
+* In terminal, navigate to the root folder
+* Run **npm i**, this will install all dependencies and get rid of junk files
+* After all deps are installed, start developement with **npm start** command
+* **npm run build** will prepare your project for deployment
+* Running **npm run svg-sprite** will rebuild svg sprite
+* Running **npm run images** will rebuild non sprite image files
 
-* Скачать репо как архив, склонировать или сделать форк.
-* Переименовать папку под свой проект.
-* В консоли перейти в корень проекта.
-* Выполнить команду **npm i**.
-* Ждать пока установятся все зависимости.
-* После окончания установки запустить режим разработки командой **npm start**.
-* Команда **npm run build** соберет все ресурсы в деплой без запуска веб-сервера.
+## Folders
 
-## Папки
+* Put all styles in **src/sass** and import everything in **styles.scss**
+* Put images in **src/img** folder
+* If u need svg sprite, put all svg files in **src/img/sprite**
+* All fonts need to go in **src/fonts** folder
 
-* Стили складывать в **src/sass** и импортировать в **styles.scss**.
-* Изображения складывать в папку **src/img**.
-* Шрифты складывать в папку **src/fonts**.
+## Updated/Bugs
 
-## Обновления/дополнения/ошибки
-
-Если вы нашли ошибку или хотите предложить улучшение сборки, сделайте fork и откройте pull request, где опишите предлагаемые изменения.
+If you've found a bug or would like to propose an update, make a fork of this repo and open a pull request with some comments about an update.

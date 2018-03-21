@@ -31,12 +31,11 @@
     "gulp-merge-media-queries": "^0.2.1",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
-    "gulp-posthtml": "^3.0.4",
     "gulp-rename": "^1.2.2",
+    "gulp-rigger": "^0.5.8",
     "gulp-sass": "^3.1.0",
     "gulp-stylelint": "^6.0.0",
     "gulp-svgstore": "^6.1.1",
-    "posthtml-include": "^1.1.0",
     "run-sequence": "^2.2.1",
     "stylelint": "^9.1.1"
   },
