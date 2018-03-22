@@ -5,7 +5,7 @@ const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('gulp-cssnano');
-const mmq = require('gulp-merge-media-queries');
+const gcmq = require('gulp-group-css-media-queries');
 const del = require('del');
 const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
@@ -40,7 +40,7 @@ gulp.task('styles', () =>
     )
     .pipe(sass())
     .pipe(postcss([autoprefixer()]))
-    .pipe(mmq({ log: false }))
+    .pipe(gcmq())
     .pipe(gulp.dest('./build/css'))
     .pipe(cssnano())
     .pipe(rename('styles.min.css'))
