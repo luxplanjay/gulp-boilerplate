@@ -1,6 +1,6 @@
 # Gulp Starter Kit - basic gulp boilerplate
 
-![banner.png](./banner.png)
+![banner.png](https://cdn.rawgit.com/axZerk/gulp-starter-kit/741020f0/banner.png)
 
 * Able to assemble _html, sass, images, fonts_
 * Uses gulp-rigger to include html-chunks
