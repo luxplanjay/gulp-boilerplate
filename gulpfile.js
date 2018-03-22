@@ -26,11 +26,10 @@ gulp.task('html', () =>
         collapseWhitespace: true,
       }),
     )
-    .pipe(gulp.dest('./build'))
-    .pipe(browserSync.stream()),
+    .pipe(gulp.dest('./build')),
 );
 
-gulp.task('css', () =>
+gulp.task('styles', () =>
   gulp
     .src('./src/sass/styles.scss')
     .pipe(plumber())
@@ -81,15 +80,13 @@ gulp.task('fonts', () =>
 );
 
 gulp.task('watch', () => {
-  gulp.watch('./src/*.html', ['html']);
-  gulp.watch('./src/sass/**/*.scss', ['css']);
+  gulp.watch('src/*.html', ['html']).on('change', browserSync.reload);
+  gulp.watch('src/sass/**/*.scss', ['styles']);
 });
 
-gulp.task('server', () =>
+gulp.task('serve', ['styles'], () =>
   browserSync.init({
-    server: {
-      baseDir: './build',
-    },
+    server: './build',
     notify: false,
     open: true,
     cors: true,
@@ -105,7 +102,7 @@ gulp.task('del:build', () => del('./build'));
 gulp.task('prepare', () => del(['**/.gitkeep', 'README.md', 'banner.png']));
 
 gulp.task('build', cb =>
-  sequence('del:build', 'svg-sprite', 'images', 'fonts', 'css', 'html', cb),
+  sequence('del:build', 'svg-sprite', 'images', 'fonts', 'styles', 'html', cb),
 );
 
-gulp.task('start', cb => sequence('build', 'server', 'watch'));
+gulp.task('start', cb => sequence('build', 'serve', 'watch'));
