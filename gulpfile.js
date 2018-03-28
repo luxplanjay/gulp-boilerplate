@@ -13,6 +13,9 @@ const svgstore = require('gulp-svgstore');
 const plumber = require('gulp-plumber');
 const rigger = require('gulp-rigger');
 const stylelint = require('gulp-stylelint');
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const sequence = require('run-sequence');
@@ -46,6 +49,22 @@ gulp.task('styles', () =>
     .pipe(rename('styles.min.css'))
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream()),
+);
+
+gulp.task('scripts', () =>
+  gulp
+    .src('./src/js/**/*.js')
+    .pipe(plumber())
+    .pipe(
+      babel({
+        presets: ['env'],
+      }),
+    )
+    .pipe(concat('scripts.js'))
+    .pipe(gulp.dest('./build/js'))
+    .pipe(uglify())
+    .pipe(rename('scripts.min.js'))
+    .pipe(gulp.dest('./build/js')),
 );
 
 gulp.task('svg-sprite', () =>
@@ -82,6 +101,7 @@ gulp.task('fonts', () =>
 gulp.task('watch', () => {
   gulp.watch('src/*.html', ['html']).on('change', browserSync.reload);
   gulp.watch('src/sass/**/*.scss', ['styles']);
+  gulp.watch('src/js/**/*.js', ['scripts']);
 });
 
 gulp.task('serve', ['styles'], () =>
@@ -102,7 +122,16 @@ gulp.task('del:build', () => del('./build'));
 gulp.task('prepare', () => del(['**/.gitkeep', 'README.md', 'banner.png']));
 
 gulp.task('build', cb =>
-  sequence('del:build', 'svg-sprite', 'images', 'fonts', 'styles', 'html', cb),
+  sequence(
+    'del:build',
+    'svg-sprite',
+    'images',
+    'fonts',
+    'styles',
+    'html',
+    'scripts',
+    cb,
+  ),
 );
 
 gulp.task('start', cb => sequence('build', 'serve', 'watch'));
