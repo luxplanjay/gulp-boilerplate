@@ -30,6 +30,7 @@
 * Put images in **src/img** folder
 * If u need svg sprite, put all svg files in **src/img/sprite**
 * All fonts need to go in **src/fonts** folder
+* Pull all html chunks to be processed by rigger in **src/html**
 
 ## Updates/Bugs
 
