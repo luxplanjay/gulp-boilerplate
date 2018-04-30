@@ -26,7 +26,7 @@
 
 ## Folders
 
-* Put all styles in **src/sass** and import everything in **styles.scss**
+* Put all styles in **src/scss** and import everything in **styles.scss**
 * Put images in **src/img** folder
 * If u need svg sprite, put all svg files in **src/img/sprite**
 * All fonts need to go in **src/fonts** folder

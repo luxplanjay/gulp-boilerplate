@@ -34,7 +34,7 @@ gulp.task('html', () =>
 
 gulp.task('styles', () =>
   gulp
-    .src('./src/sass/styles.scss')
+    .src('./src/scss/styles.scss')
     .pipe(plumber())
     .pipe(
       stylelint({
@@ -100,7 +100,7 @@ gulp.task('fonts', () =>
 
 gulp.task('watch', () => {
   gulp.watch('src/**/*.html', ['html']).on('change', browserSync.reload);
-  gulp.watch('src/sass/**/*.scss', ['styles']);
+  gulp.watch('src/scss/**/*.scss', ['styles']);
   gulp.watch('src/js/**/*.js', ['scripts']);
 });
 
