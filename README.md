@@ -12,9 +12,21 @@
 * Merges same media queries
 * Minifies build files
 
-## **[LTS version](https://nodejs.org/en/) of NodeJS is required**
+## Node version
 
-## Usage
+**[LTS version](https://nodejs.org/en/) of NodeJS is required**
+
+## Warning
+
+* If you are a Linux user, please execute this command in your terminal
+
+  **sudo apt-get install gcc g++ make**
+
+* If you are a Windows user, please execute this command in your terminal
+
+  **npm install --global --production windows-build-tools**
+
+## How to use
 
 * Download, clone or fork this repo
 * In terminal, navigate to the root folder
