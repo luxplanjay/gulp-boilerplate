@@ -18,11 +18,11 @@
 
 ## Warning
 
-* If you are a Linux user, please execute this command in your terminal
+* If you are a Linux user please execute this command in your terminal
 
   **sudo apt-get install gcc g++ make**
 
-* If you are a Windows user, please execute this command in your terminal
+* If you are a Windows user please execute this command in your terminal
 
   **npm install --global --production windows-build-tools**
 
