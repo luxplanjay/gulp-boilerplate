@@ -26,10 +26,10 @@ gulp.task('html', () =>
     .pipe(rigger())
     .pipe(
       htmlmin({
-        collapseWhitespace: true,
-      }),
+        collapseWhitespace: true
+      })
     )
-    .pipe(gulp.dest('./build')),
+    .pipe(gulp.dest('./build'))
 );
 
 gulp.task('styles', () =>
@@ -38,8 +38,8 @@ gulp.task('styles', () =>
     .pipe(plumber())
     .pipe(
       stylelint({
-        reporters: [{ formatter: 'string', console: true }],
-      }),
+        reporters: [{ formatter: 'string', console: true }]
+      })
     )
     .pipe(sass())
     .pipe(postcss([autoprefixer()]))
@@ -48,7 +48,7 @@ gulp.task('styles', () =>
     .pipe(cssnano())
     .pipe(rename('styles.min.css'))
     .pipe(gulp.dest('./build/css'))
-    .pipe(browserSync.stream()),
+    .pipe(browserSync.stream())
 );
 
 gulp.task('scripts', () =>
@@ -57,14 +57,14 @@ gulp.task('scripts', () =>
     .pipe(plumber())
     .pipe(
       babel({
-        presets: ['env'],
-      }),
+        presets: ['env']
+      })
     )
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('./build/js'))
     .pipe(uglify())
     .pipe(rename('scripts.min.js'))
-    .pipe(gulp.dest('./build/js')),
+    .pipe(gulp.dest('./build/js'))
 );
 
 gulp.task('svg-sprite', () =>
@@ -72,11 +72,11 @@ gulp.task('svg-sprite', () =>
     .src('./src/img/sprite/**/*.svg')
     .pipe(
       svgstore({
-        inlineSvg: true,
-      }),
+        inlineSvg: true
+      })
     )
     .pipe(rename('sprite.svg'))
-    .pipe(gulp.dest('./build/img')),
+    .pipe(gulp.dest('./build/img'))
 );
 
 gulp.task('images', () =>
@@ -87,15 +87,15 @@ gulp.task('images', () =>
         imagemin.jpegtran({ progressive: true }),
         imagemin.optipng({ optimizationLevel: 3 }),
         imagemin.svgo({
-          plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
-        }),
-      ]),
+          plugins: [{ removeViewBox: false }, { cleanupIDs: false }]
+        })
+      ])
     )
-    .pipe(gulp.dest('./build/img')),
+    .pipe(gulp.dest('./build/img'))
 );
 
 gulp.task('fonts', () =>
-  gulp.src('./src/fonts/**/*.{woff,woff2}').pipe(gulp.dest('./build/fonts')),
+  gulp.src('./src/fonts/**/*.{woff,woff2}').pipe(gulp.dest('./build/fonts'))
 );
 
 gulp.task('watch', () => {
@@ -113,8 +113,8 @@ gulp.task('serve', ['styles'], () =>
     ui: false,
     logPrefix: 'DevServer',
     host: 'localhost',
-    port: 3000,
-  }),
+    port: 3000
+  })
 );
 
 gulp.task('del:build', () => del('./build'));
@@ -130,8 +130,8 @@ gulp.task('build', cb =>
     'styles',
     'html',
     'scripts',
-    cb,
-  ),
+    cb
+  )
 );
 
-gulp.task('start', cb => sequence('build', 'serve', 'watch'));
+gulp.task('start', cb => sequence('build', 'serve', 'watch', cb));
