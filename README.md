@@ -30,20 +30,20 @@ Currently requires NodeJS version 10
 
 - Download, clone or fork this repo
 - In terminal, navigate to the root folder
-- Run **npm i**, this will install all dependencies and get rid of junk files
+- Run **npm install**, this will install all dependencies and get rid of junk files
 - After all deps are installed, start developement with **npm start**
 - **npm run build** will prepare your project for deployment
-- Running **npm run svg-sprite** will rebuild svg sprite
-- Running **npm run images** will rebuild non sprite image files
+- Running **npm run sprite** will rebuild svg sprite
+- Running **npm run images** will rebuild non sprite images
 
 ## Folders
 
-- Put all styles in **src/scss** and import everything in **styles.scss**
-- Put images in **src/img** folder
-- If u need svg sprite, put all svg files in **src/img/sprite**
-- All fonts need to go in **src/fonts** folder
+- Put all styles in **src/sass** and import everything in **styles.scss**
+- Put images in **src/images** folder
+- If you need a svg sprite, put all svg files in **src/images/icons**, while naming them `icon-[name].svg`. Filename will be used as a symbol `id`
+- Put fonts in **src/fonts** folder
 - Pull all html chunks to be processed by rigger in **src/html**
 
 ## Updates/Bugs
 
-If you've found a bug or would like to propose an update, make a fork of this repo and open a pull request with some comments about an update.
+If you've found a bug or would like to propose an update, make a fork of this repo and open a pull request with some comments about an update. Thx!
