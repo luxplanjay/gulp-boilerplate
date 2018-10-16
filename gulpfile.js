@@ -120,7 +120,7 @@ gulp.task('prepare', () => del(['**/.gitkeep', 'README.md', 'banner.png']));
 gulp.task('build', callback =>
   sequence(
     'del:build',
-    ['prite', 'images', 'fonts', 'styles', 'html', 'scripts'],
+    ['sprite', 'images', 'fonts', 'styles', 'html', 'scripts'],
     callback
   )
 );
