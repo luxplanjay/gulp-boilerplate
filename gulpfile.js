@@ -67,24 +67,17 @@ gulp.task('scripts', () => {
     .pipe(gulp.dest('./build/js'));
 });
 
-gulp.task('svg-sprite', () => {
+gulp.task('sprite', () => {
   return gulp
-    .src('./src/images/sprite/**/*.svg')
-    .pipe(
-      svgstore({
-        inlineSvg: true
-      })
-    )
+    .src('./src/images/icons/icon-*.svg')
+    .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename('sprite.svg'))
     .pipe(gulp.dest('./build/images'));
 });
 
 gulp.task('images', () => {
   return gulp
-    .src([
-      './src/images/**/*.+(png|jpg|jpeg|gif|svg)',
-      '!./src/images/sprite/**/*'
-    ])
+    .src(['./src/images/**/*.{png,jpg,jpeg,svg}', '!./src/images/icons/**/*'])
     .pipe(
       imagemin([
         imagemin.jpegtran({ progressive: true }),

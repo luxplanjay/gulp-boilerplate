@@ -7,7 +7,7 @@
     "prepare": "gulp prepare",
     "start": "gulp start",
     "build": "gulp build",
-    "svg-sprite": "gulp svg-sprite",
+    "sprite": "gulp sprite",
     "images": "gulp images"
   },
   "repository": {
