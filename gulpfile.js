@@ -34,7 +34,7 @@ gulp.task('html', () =>
 
 gulp.task('styles', () =>
   gulp
-    .src('./src/scss/styles.scss')
+    .src('./src/sass/styles.scss')
     .pipe(plumber())
     .pipe(
       stylelint({
@@ -69,19 +69,22 @@ gulp.task('scripts', () =>
 
 gulp.task('svg-sprite', () =>
   gulp
-    .src('./src/img/sprite/**/*.svg')
+    .src('./src/images/sprite/**/*.svg')
     .pipe(
       svgstore({
         inlineSvg: true
       })
     )
     .pipe(rename('sprite.svg'))
-    .pipe(gulp.dest('./build/img'))
+    .pipe(gulp.dest('./build/images'))
 );
 
 gulp.task('images', () =>
   gulp
-    .src(['./src/img/**/*.{png,jpg,jpeg,svg}', '!./src/img/sprite/**/*.*'])
+    .src([
+      './src/images/**/*.+(png|jpg|jpeg|gif|svg)',
+      '!./src/images/sprite/**/*.*'
+    ])
     .pipe(
       imagemin([
         imagemin.jpegtran({ progressive: true }),
@@ -91,16 +94,16 @@ gulp.task('images', () =>
         })
       ])
     )
-    .pipe(gulp.dest('./build/img'))
+    .pipe(gulp.dest('./build/images'))
 );
 
 gulp.task('fonts', () =>
-  gulp.src('./src/fonts/**/*.{woff,woff2}').pipe(gulp.dest('./build/fonts'))
+  gulp.src('./src/fonts/**/*').pipe(gulp.dest('./build/fonts'))
 );
 
 gulp.task('watch', () => {
   gulp.watch('src/**/*.html', ['html']).on('change', browserSync.reload);
-  gulp.watch('src/scss/**/*.scss', ['styles']);
+  gulp.watch('src/sass/**/*.scss', ['styles']);
   gulp.watch('src/js/**/*.js', ['scripts']).on('change', browserSync.reload);
 });
 
@@ -121,17 +124,12 @@ gulp.task('del:build', () => del('./build'));
 
 gulp.task('prepare', () => del(['**/.gitkeep', 'README.md', 'banner.png']));
 
-gulp.task('build', cb =>
+gulp.task('build', callback =>
   sequence(
     'del:build',
-    'svg-sprite',
-    'images',
-    'fonts',
-    'styles',
-    'html',
-    'scripts',
-    cb
+    ['svg-sprite', 'images', 'fonts', 'styles', 'html', 'scripts'],
+    callback
   )
 );
 
-gulp.task('start', cb => sequence('build', 'serve', 'watch', cb));
+gulp.task('start', callback => sequence('build', 'serve', 'watch', callback));
