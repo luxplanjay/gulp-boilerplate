@@ -57,7 +57,7 @@ gulp.task('scripts', () =>
     .pipe(plumber())
     .pipe(
       babel({
-        presets: ['env']
+        presets: ['@babel/env']
       })
     )
     .pipe(concat('scripts.js'))
@@ -101,7 +101,7 @@ gulp.task('fonts', () =>
 gulp.task('watch', () => {
   gulp.watch('src/**/*.html', ['html']).on('change', browserSync.reload);
   gulp.watch('src/scss/**/*.scss', ['styles']);
-  gulp.watch('src/js/**/*.js', ['scripts']);
+  gulp.watch('src/js/**/*.js', ['scripts']).on('change', browserSync.reload);
 });
 
 gulp.task('serve', ['styles'], () =>
