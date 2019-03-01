@@ -1,4 +1,4 @@
-# Gulp Starter Kit - basic gulp boilerplate
+# Gulp Starter Kit - basic boilerplate
 
 ![banner.png](https://cdn.rawgit.com/axZerk/gulp-starter-kit/741020f0/banner.png)
 
@@ -12,38 +12,38 @@
 - Merges same media queries
 - Minifies build files
 
-## Node version
-
-Currently requires NodeJS version 10
-
 ## Warning
 
-- If you are a Linux user please execute this command in your terminal
+If you are a Windows user please execute this command in your terminal
 
-  **sudo apt-get install gcc g++ make**
+```plain
+npm install --global windows-build-tools
+```
 
-- If you are a Windows user please execute this command in your terminal
+If you are a Linux user please execute this command in your terminal
 
-  **npm install --global --production windows-build-tools**
+```plain
+sudo apt-get install gcc g++ make
+```
 
 ## How to use
 
 - Download, clone or fork this repo
-- In terminal, navigate to the root folder
-- Run **npm install**, this will install all dependencies and get rid of junk files
-- After all deps are installed, start developement with **npm start**
-- **npm run build** will prepare your project for deployment
-- Running **npm run sprite** will rebuild svg sprite
-- Running **npm run images** will rebuild non sprite images
+- In terminal, navigate to the repo's root folder
+- Run `npm install`, this will install all dependencies and get rid of junk files
+- After all deps are installed, start developement with `npm start`
+- Executing `npm run build` will prepare your project for deployment
+- Executing `npm run sprite` will rebuild svg sprite
+- Executing `npm run images` will rebuild non sprite images
 
 ## Folders
 
-- Put all styles in **src/sass** and import everything in **styles.scss**
-- Put images in **src/images** folder
-- If you need a svg sprite, put all svg files in **src/images/icons**, while naming them `icon-[name].svg`. Filename will be used as a symbol `id`
-- Put fonts in **src/fonts** folder
-- Pull all html chunks to be processed by rigger in **src/html**
+- Put all styles in `src/sass` and import everything in `styles.scss`
+- Put images in `src/images` folder
+- If you need a svg sprite, put all svg files in `src/images/icons`, while naming them `icon-[name].svg`. Filename will be used as a symbol `id`
+- Put fonts in `src/fonts` folder
+- Pull all html chunks to be processed by rigger in `src/html`
 
-## Updates/Bugs
+## Updates and bugs
 
 If you've found a bug or would like to propose an update, make a fork of this repo and open a pull request with some comments about an update. Thx!
