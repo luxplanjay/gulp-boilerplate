@@ -45,28 +45,25 @@ function styles() {
 }
 
 function scripts() {
-  return src('./src/js/**/*.js')
+  return src('src/js/**/*.js')
     .pipe(plumber())
     .pipe(babel({ presets: ['@babel/env'] }))
     .pipe(concat('scripts.js'))
-    .pipe(dest('./build/js'))
+    .pipe(dest('build/js'))
     .pipe(uglify())
     .pipe(rename('scripts.min.js'))
-    .pipe(dest('./build/js'));
+    .pipe(dest('build/js'));
 }
 
 function sprite() {
-  return src('./src/images/icons/icon-*.svg')
+  return src('src/images/icons/icon-*.svg')
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename('sprite.svg'))
-    .pipe(dest('./build/images'));
+    .pipe(dest('build/images'));
 }
 
 function images() {
-  return src([
-    './src/images/**/*.{png,jpg,jpeg,svg}',
-    '!./src/images/icons/**/*'
-  ])
+  return src(['src/images/**/*.{png,jpg,jpeg,svg}', '!src/images/icons/**/*'])
     .pipe(
       imagemin([
         imagemin.jpegtran({ progressive: true }),
@@ -76,17 +73,31 @@ function images() {
         })
       ])
     )
-    .pipe(dest('./build/images'));
+    .pipe(dest('build/images'));
 }
 
 function fonts() {
-  return src('./src/fonts/**/*').pipe(dest('./build/fonts'));
+  return src('src/fonts/**/*').pipe(dest('build/fonts'));
 }
 
 function watchAll() {
-  watch('src/**/*.html', { ignoreInitial: false }, html);
-  watch('src/sass/**/*.scss', { ignoreInitial: false }, styles);
-  watch('src/js/**/*.js', { ignoreInitial: false }, scripts);
+  watch(
+    'src/**/*.html',
+    { ignoreInitial: false },
+    series(html, server.reload)
+  ).on('change', series(html, server.reload));
+
+  watch(
+    'src/sass/**/*.scss',
+    { ignoreInitial: false },
+    series(styles, server.reload)
+  ).on('change', series(styles, server.reload));
+
+  watch(
+    'src/js/**/*.js',
+    { ignoreInitial: false },
+    series(scripts, server.reload)
+  ).on('change', series(scripts, server.reload));
 }
 
 // gulp.task('watch', () => {
@@ -95,27 +106,33 @@ function watchAll() {
 //   gulp.watch('src/js/**/*.js', ['scripts']).on('change', server.reload);
 // });
 
-// gulp.task(
-//   'serve',
-//   gulp.series('styles', () => {
-//     return server.init({
-//       server: './build',
-//       notify: false,
-//       open: true,
-//       cors: true,
-//       ui: false,
-//       logPrefix: 'DevServer',
-//       host: 'localhost',
-//       port: 8080
-//     });
-//   })
-// );
+function serve() {
+  return server.init({
+    server: 'build',
+    notify: false,
+    open: true,
+    cors: true,
+    ui: false,
+    logPrefix: 'DevServer',
+    host: 'localhost',
+    port: 8080
+  });
+}
 
 function clean() {
   return del('./build');
 }
 
-exports.start = series(clean, parallel(html, styles, scripts), watchAll);
+const build = series(
+  clean,
+  parallel(sprite, images, fonts, html, styles, scripts)
+);
+
+const start = series(build, serve, watchAll);
+
+exports.watch = watchAll;
+exports.build = build;
+exports.start = start;
 
 // TODO: uncomment pre release
 // gulp.task('prepare', () => del(['**/.gitkeep', 'README.md']));
@@ -130,3 +147,21 @@ exports.start = series(clean, parallel(html, styles, scripts), watchAll);
 // );
 
 // gulp.task('start', callback => sequence('build', 'serve', 'watch', callback));
+
+// OLD
+
+// gulp.task(
+//   'serve',
+//   gulp.series('styles', () => {
+// return server.init({
+//   server: './build',
+//   notify: false,
+//   open: true,
+//   cors: true,
+//   ui: false,
+//   logPrefix: 'DevServer',
+//   host: 'localhost',
+//   port: 8080
+// });
+//   })
+// );
