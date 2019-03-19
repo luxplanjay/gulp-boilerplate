@@ -7,7 +7,8 @@
     "start": "gulp start",
     "build": "gulp build",
     "sprite": "gulp sprite",
-    "images": "gulp images"
+    "images": "gulp images",
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",
@@ -40,7 +41,6 @@
     "gulp-stylelint": "^8.0.0",
     "gulp-svgstore": "^7.0.1",
     "gulp-uglify": "^3.0.2",
-    "run-sequence": "^2.2.1",
     "stylelint": "^9.10.1"
   }
 }
