@@ -1,6 +1,6 @@
 'use strict';
 
-const gulp = require('gulp');
+const { src, dest, series, parallel, watch } = require('gulp');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -18,111 +18,104 @@ const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const server = require('browser-sync').create();
-const sequence = require('run-sequence');
 
-gulp.task('html', () => {
-  return gulp
-    .src('./src/*.html')
+function html() {
+  return src('src/*.html')
     .pipe(rigger())
-    .pipe(
-      htmlmin({
-        collapseWhitespace: true
-      })
-    )
-    .pipe(gulp.dest('./build'));
-});
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('build'));
+}
 
-gulp.task('styles', () => {
-  return gulp
-    .src('./src/sass/styles.scss')
+function styles() {
+  return src('src/sass/styles.scss')
     .pipe(plumber())
     .pipe(
       stylelint({
-        reporters: [{ formatter: 'string', console: true }]
-      })
+        reporters: [{ formatter: 'string', console: true }],
+      }),
     )
     .pipe(sass())
     .pipe(postcss([autoprefixer()]))
     .pipe(gcmq())
-    .pipe(gulp.dest('./build/css'))
+    .pipe(dest('build/css'))
     .pipe(csso())
     .pipe(rename('styles.min.css'))
-    .pipe(gulp.dest('./build/css'))
+    .pipe(dest('build/css'))
     .pipe(server.stream());
-});
+}
 
-gulp.task('scripts', () => {
-  return gulp
-    .src('./src/js/**/*.js')
+function scripts() {
+  return src('src/js/**/*.js')
     .pipe(plumber())
-    .pipe(
-      babel({
-        presets: ['@babel/env']
-      })
-    )
+    .pipe(babel({ presets: ['@babel/env'] }))
     .pipe(concat('scripts.js'))
-    .pipe(gulp.dest('./build/js'))
+    .pipe(dest('build/js'))
     .pipe(uglify())
     .pipe(rename('scripts.min.js'))
-    .pipe(gulp.dest('./build/js'));
-});
+    .pipe(dest('build/js'));
+}
 
-gulp.task('sprite', () => {
-  return gulp
-    .src('./src/images/icons/icon-*.svg')
+function sprite() {
+  return src('src/images/icons/icon-*.svg')
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename('sprite.svg'))
-    .pipe(gulp.dest('./build/images'));
-});
+    .pipe(dest('build/images'));
+}
 
-gulp.task('images', () => {
-  return gulp
-    .src(['./src/images/**/*.{png,jpg,jpeg,svg}', '!./src/images/icons/**/*'])
+function images() {
+  return src(['src/images/**/*.{png,jpg,jpeg,svg}', '!src/images/icons/**/*'])
     .pipe(
       imagemin([
         imagemin.jpegtran({ progressive: true }),
         imagemin.optipng({ optimizationLevel: 3 }),
         imagemin.svgo({
-          plugins: [{ removeViewBox: false }, { cleanupIDs: false }]
-        })
-      ])
+          plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
+        }),
+      ]),
     )
-    .pipe(gulp.dest('./build/images'));
-});
+    .pipe(dest('build/images'));
+}
 
-gulp.task('fonts', () => {
-  return gulp.src('./src/fonts/**/*').pipe(gulp.dest('./build/fonts'));
-});
+function fonts() {
+  return src('src/fonts/**/*').pipe(dest('build/fonts'));
+}
 
-gulp.task('watch', () => {
-  gulp.watch('src/**/*.html', ['html']).on('change', server.reload);
-  gulp.watch('src/sass/**/*.scss', ['styles']);
-  gulp.watch('src/js/**/*.js', ['scripts']).on('change', server.reload);
-});
+function watcher(done) {
+  watch('src/**/*.html').on('change', series(html, server.reload));
+  watch('src/sass/**/*.scss').on('change', series(styles, server.reload));
+  watch('src/js/**/*.js').on('change', series(scripts, server.reload));
 
-gulp.task('serve', ['styles'], () => {
+  done();
+}
+
+function serve() {
   return server.init({
-    server: './build',
+    server: 'build',
     notify: false,
-    open: true,
+    open: false,
     cors: true,
     ui: false,
     logPrefix: 'DevServer',
     host: 'localhost',
-    port: 3000
+    port: 8080,
   });
-});
+}
 
-gulp.task('del:build', () => del('./build'));
+function clean() {
+  return del('./build');
+}
 
-gulp.task('prepare', () => del(['**/.gitkeep', 'README.md', 'banner.png']));
+function prepare() {
+  return del(['**/.gitkeep', 'README.md']);
+}
 
-gulp.task('build', callback =>
-  sequence(
-    'del:build',
-    ['sprite', 'images', 'fonts', 'styles', 'html', 'scripts'],
-    callback
-  )
+const build = series(
+  clean,
+  parallel(sprite, images, fonts, html, styles, scripts),
 );
 
-gulp.task('start', callback => sequence('build', 'serve', 'watch', callback));
+const start = series(build, watcher, serve);
+
+exports.prepare = prepare;
+exports.build = build;
+exports.start = start;
