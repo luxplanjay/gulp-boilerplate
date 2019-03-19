@@ -44,21 +44,16 @@ function styles() {
     .pipe(server.stream());
 }
 
-gulp.task('scripts', () => {
-  return gulp
-    .src('./src/js/**/*.js')
+function scripts() {
+  return src('./src/js/**/*.js')
     .pipe(plumber())
-    .pipe(
-      babel({
-        presets: ['@babel/env']
-      })
-    )
+    .pipe(babel({ presets: ['@babel/env'] }))
     .pipe(concat('scripts.js'))
-    .pipe(gulp.dest('./build/js'))
+    .pipe(dest('./build/js'))
     .pipe(uglify())
     .pipe(rename('scripts.min.js'))
-    .pipe(gulp.dest('./build/js'));
-});
+    .pipe(dest('./build/js'));
+}
 
 gulp.task('sprite', () => {
   return gulp
