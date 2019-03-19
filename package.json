@@ -4,12 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "gulp prepare",
     "start": "gulp start",
     "build": "gulp build",
     "sprite": "gulp sprite",
-    "images": "gulp images",
-    "gulp": "gulp",
-    "watch": "gulp watch"
+    "images": "gulp images"
   },
   "repository": {
     "type": "git",

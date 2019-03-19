@@ -80,7 +80,7 @@ function fonts() {
   return src('src/fonts/**/*').pipe(dest('build/fonts'));
 }
 
-function watchAll(done) {
+function watcher(done) {
   watch('src/**/*.html').on('change', series(html, server.reload));
   watch('src/sass/**/*.scss').on('change', series(styles, server.reload));
   watch('src/js/**/*.js').on('change', series(scripts, server.reload));
@@ -105,18 +105,17 @@ function clean() {
   return del('./build');
 }
 
+function prepare() {
+  return del(['**/.gitkeep', 'README.md']);
+}
+
 const build = series(
   clean,
   parallel(sprite, images, fonts, html, styles, scripts),
 );
 
-const start = series(build, watchAll, serve);
+const start = series(build, watcher, serve);
 
-exports.watch = watchAll;
+exports.prepare = prepare;
 exports.build = build;
 exports.start = start;
-
-// TODO: uncomment pre release
-// gulp.task('prepare', () => del(['**/.gitkeep', 'README.md']));
-
-// gulp.task('start', callback => sequence('build', 'serve', 'watch', callback));
