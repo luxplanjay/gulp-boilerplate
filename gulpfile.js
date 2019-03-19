@@ -47,7 +47,7 @@ function styles() {
 function scripts() {
   return src('src/js/**/*.js')
     .pipe(plumber())
-    .pipe(babel({ presets: ['@babel/env'] }))
+    .pipe(babel())
     .pipe(concat('scripts.js'))
     .pipe(dest('build/js'))
     .pipe(uglify())
