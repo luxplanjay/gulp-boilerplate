@@ -1,6 +1,6 @@
 'use strict';
 
-const { src, dest, series, parallel } = require('gulp');
+const { src, dest, series, parallel, watch } = require('gulp');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -20,14 +20,14 @@ const rename = require('gulp-rename');
 const server = require('browser-sync').create();
 
 function html() {
-  return src('./src/*.html')
+  return src('src/*.html')
     .pipe(rigger())
     .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(dest('./build'));
+    .pipe(dest('build'));
 }
 
 function styles() {
-  return src('./src/sass/styles.scss')
+  return src('src/sass/styles.scss')
     .pipe(plumber())
     .pipe(
       stylelint({
@@ -37,10 +37,10 @@ function styles() {
     .pipe(sass())
     .pipe(postcss([autoprefixer()]))
     .pipe(gcmq())
-    .pipe(dest('./build/css'))
+    .pipe(dest('build/css'))
     .pipe(csso())
     .pipe(rename('styles.min.css'))
-    .pipe(dest('./build/css'))
+    .pipe(dest('build/css'))
     .pipe(server.stream());
 }
 
@@ -83,48 +83,50 @@ function fonts() {
   return src('./src/fonts/**/*').pipe(dest('./build/fonts'));
 }
 
-gulp.task('watch', () => {
-  gulp.watch('src/**/*.html', ['html']).on('change', server.reload);
-  gulp.watch('src/sass/**/*.scss', ['styles']);
-  gulp.watch('src/js/**/*.js', ['scripts']).on('change', server.reload);
-});
+function watchAll() {
+  watch('src/**/*.html', { ignoreInitial: false }, html);
+  watch('src/sass/**/*.scss', { ignoreInitial: false }, styles);
+  watch('src/js/**/*.js', { ignoreInitial: false }, scripts);
+}
 
-gulp.task(
-  'serve',
-  gulp.series('styles', () => {
-    return server.init({
-      server: './build',
-      notify: false,
-      open: true,
-      cors: true,
-      ui: false,
-      logPrefix: 'DevServer',
-      host: 'localhost',
-      port: 8080
-    });
-  })
-);
+// gulp.task('watch', () => {
+//   gulp.watch('src/**/*.html', ['html']).on('change', server.reload);
+//   gulp.watch('src/sass/**/*.scss', ['styles']);
+//   gulp.watch('src/js/**/*.js', ['scripts']).on('change', server.reload);
+// });
 
-gulp.task('clean', () => del('./build'));
+// gulp.task(
+//   'serve',
+//   gulp.series('styles', () => {
+//     return server.init({
+//       server: './build',
+//       notify: false,
+//       open: true,
+//       cors: true,
+//       ui: false,
+//       logPrefix: 'DevServer',
+//       host: 'localhost',
+//       port: 8080
+//     });
+//   })
+// );
+
+function clean() {
+  return del('./build');
+}
+
+exports.start = series(clean, parallel(html, styles, scripts), watchAll);
 
 // TODO: uncomment pre release
 // gulp.task('prepare', () => del(['**/.gitkeep', 'README.md']));
 
 // TODO: how to implement this now?
-gulp.task('build', callback =>
-  sequence(
-    'clean',
-    ['sprite', 'images', 'fonts', 'styles', 'html', 'scripts'],
-    callback
-  )
-);
+// gulp.task('build', callback =>
+//   sequence(
+//     'clean',
+//     ['sprite', 'images', 'fonts', 'styles', 'html', 'scripts'],
+//     callback
+//   )
+// );
 
-function defaultTask(done) {
-  //
-  console.log('hello from gulp 4');
-  done();
-}
-
-gulp.task('start', callback => sequence('build', 'serve', 'watch', callback));
-
-exports.default = defaultTask;
+// gulp.task('start', callback => sequence('build', 'serve', 'watch', callback));
