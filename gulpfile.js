@@ -80,37 +80,19 @@ function fonts() {
   return src('src/fonts/**/*').pipe(dest('build/fonts'));
 }
 
-function watchAll() {
-  watch(
-    'src/**/*.html',
-    { ignoreInitial: false },
-    series(html, server.reload),
-  ).on('change', series(html, server.reload));
+function watchAll(done) {
+  watch('src/**/*.html').on('change', series(html, server.reload));
+  watch('src/sass/**/*.scss').on('change', series(styles, server.reload));
+  watch('src/js/**/*.js').on('change', series(scripts, server.reload));
 
-  watch(
-    'src/sass/**/*.scss',
-    { ignoreInitial: false },
-    series(styles, server.reload),
-  ).on('change', series(styles, server.reload));
-
-  watch(
-    'src/js/**/*.js',
-    { ignoreInitial: false },
-    series(scripts, server.reload),
-  ).on('change', series(scripts, server.reload));
+  done();
 }
-
-// gulp.task('watch', () => {
-//   gulp.watch('src/**/*.html', ['html']).on('change', server.reload);
-//   gulp.watch('src/sass/**/*.scss', ['styles']);
-//   gulp.watch('src/js/**/*.js', ['scripts']).on('change', server.reload);
-// });
 
 function serve() {
   return server.init({
     server: 'build',
     notify: false,
-    open: true,
+    open: false,
     cors: true,
     ui: false,
     logPrefix: 'DevServer',
@@ -128,7 +110,7 @@ const build = series(
   parallel(sprite, images, fonts, html, styles, scripts),
 );
 
-const start = series(build, serve, watchAll);
+const start = series(build, watchAll, serve);
 
 exports.watch = watchAll;
 exports.build = build;
@@ -137,31 +119,4 @@ exports.start = start;
 // TODO: uncomment pre release
 // gulp.task('prepare', () => del(['**/.gitkeep', 'README.md']));
 
-// TODO: how to implement this now?
-// gulp.task('build', callback =>
-//   sequence(
-//     'clean',
-//     ['sprite', 'images', 'fonts', 'styles', 'html', 'scripts'],
-//     callback
-//   )
-// );
-
 // gulp.task('start', callback => sequence('build', 'serve', 'watch', callback));
-
-// OLD
-
-// gulp.task(
-//   'serve',
-//   gulp.series('styles', () => {
-// return server.init({
-//   server: './build',
-//   notify: false,
-//   open: true,
-//   cors: true,
-//   ui: false,
-//   logPrefix: 'DevServer',
-//   host: 'localhost',
-//   port: 8080
-// });
-//   })
-// );
