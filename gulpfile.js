@@ -31,8 +31,8 @@ function styles() {
     .pipe(plumber())
     .pipe(
       stylelint({
-        reporters: [{ formatter: 'string', console: true }]
-      })
+        reporters: [{ formatter: 'string', console: true }],
+      }),
     )
     .pipe(sass())
     .pipe(postcss([autoprefixer()]))
@@ -69,9 +69,9 @@ function images() {
         imagemin.jpegtran({ progressive: true }),
         imagemin.optipng({ optimizationLevel: 3 }),
         imagemin.svgo({
-          plugins: [{ removeViewBox: false }, { cleanupIDs: false }]
-        })
-      ])
+          plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
+        }),
+      ]),
     )
     .pipe(dest('build/images'));
 }
@@ -84,19 +84,19 @@ function watchAll() {
   watch(
     'src/**/*.html',
     { ignoreInitial: false },
-    series(html, server.reload)
+    series(html, server.reload),
   ).on('change', series(html, server.reload));
 
   watch(
     'src/sass/**/*.scss',
     { ignoreInitial: false },
-    series(styles, server.reload)
+    series(styles, server.reload),
   ).on('change', series(styles, server.reload));
 
   watch(
     'src/js/**/*.js',
     { ignoreInitial: false },
-    series(scripts, server.reload)
+    series(scripts, server.reload),
   ).on('change', series(scripts, server.reload));
 }
 
@@ -115,7 +115,7 @@ function serve() {
     ui: false,
     logPrefix: 'DevServer',
     host: 'localhost',
-    port: 8080
+    port: 8080,
   });
 }
 
@@ -125,7 +125,7 @@ function clean() {
 
 const build = series(
   clean,
-  parallel(sprite, images, fonts, html, styles, scripts)
+  parallel(sprite, images, fonts, html, styles, scripts),
 );
 
 const start = series(build, serve, watchAll);
