@@ -18,6 +18,7 @@ const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const server = require('browser-sync').create();
+const ghPages = require('gh-pages');
 
 function html() {
   return src('src/*.html')
@@ -92,7 +93,7 @@ function serve() {
   return server.init({
     server: 'build',
     notify: false,
-    open: false,
+    open: 'local',
     cors: true,
     ui: false,
     logPrefix: 'DevServer',
@@ -109,6 +110,10 @@ function prepare() {
   return del(['**/.gitkeep', 'README.md']);
 }
 
+function deploy(cb) {
+  ghPages.publish(path.join(process.cwd(), './build'), cb);
+}
+
 const build = series(
   clean,
   parallel(sprite, images, fonts, html, styles, scripts),
@@ -119,3 +124,5 @@ const start = series(build, watcher, serve);
 exports.prepare = prepare;
 exports.build = build;
 exports.start = start;
+exports.deploy = deploy;
+exports.default = start;
