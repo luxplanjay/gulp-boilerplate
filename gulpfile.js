@@ -18,6 +18,7 @@ const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const server = require('browser-sync').create();
+const path = require('path');
 const ghPages = require('gh-pages');
 
 function html() {
