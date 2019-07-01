@@ -9,7 +9,8 @@
     "build": "gulp build",
     "sprite": "gulp sprite",
     "images": "gulp images",
-    "deploy": "gulp build && gulp deploy"
+    "predeploy": "gulp build",
+    "deploy": "gulp deploy"
   },
   "repository": {
     "type": "git",

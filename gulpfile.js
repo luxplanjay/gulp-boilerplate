@@ -112,7 +112,13 @@ function prepare() {
 }
 
 function deploy(cb) {
-  ghPages.publish(path.join(process.cwd(), './build'), cb);
+  ghPages.publish(
+    path.resolve(__dirname, './build'),
+    {
+      branch: 'gh-pages', //  default branch name to deploy
+    },
+    cb,
+  );
 }
 
 const build = series(
@@ -126,4 +132,3 @@ exports.prepare = prepare;
 exports.build = build;
 exports.start = start;
 exports.deploy = deploy;
-exports.default = start;
