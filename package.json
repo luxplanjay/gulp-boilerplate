@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "gulp prepare",
     "start": "gulp start",
     "build": "gulp build",
     "sprite": "gulp sprite",
