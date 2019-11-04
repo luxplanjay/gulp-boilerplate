@@ -19,14 +19,29 @@ const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const server = require('browser-sync').create();
 
-function html() {
+const paths = {
+  src: {
+    html: 'src/*.html',
+    css: 'src/sass/styles.scss',
+    js: 'src/js/**/*.js',
+    images: 'src/fonts/**/*',
+  },
+  dest: {
+    html: 'build/',
+    css: 'build/css',
+    js: 'build/js',
+    image: 'build/images',
+  },
+};
+
+const html = () => {
   return src('src/*.html')
     .pipe(rigger())
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(dest('build'));
-}
+};
 
-function styles() {
+const styles = () => {
   return src('src/sass/styles.scss')
     .pipe(plumber())
     .pipe(
@@ -35,16 +50,21 @@ function styles() {
       }),
     )
     .pipe(sass())
-    .pipe(postcss([autoprefixer()]))
+    .pipe(
+      postcss([
+        autoprefixer({
+          browsers: ['last 2 versions'],
+        }),
+      ]),
+    )
     .pipe(gcmq())
-    .pipe(dest('build/css'))
     .pipe(csso())
     .pipe(rename('styles.min.css'))
     .pipe(dest('build/css'))
     .pipe(server.stream());
-}
+};
 
-function scripts() {
+const scripts = () => {
   return src('src/js/**/*.js')
     .pipe(plumber())
     .pipe(babel())
@@ -53,16 +73,16 @@ function scripts() {
     .pipe(uglify())
     .pipe(rename('scripts.min.js'))
     .pipe(dest('build/js'));
-}
+};
 
-function sprite() {
+const sprite = () => {
   return src('src/images/icons/icon-*.svg')
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename('sprite.svg'))
     .pipe(dest('build/images'));
-}
+};
 
-function images() {
+const images = () => {
   return src(['src/images/**/*.{png,jpg,jpeg,svg}', '!src/images/icons/**/*'])
     .pipe(
       imagemin([
@@ -74,21 +94,21 @@ function images() {
       ]),
     )
     .pipe(dest('build/images'));
-}
+};
 
-function fonts() {
+const fonts = () => {
   return src('src/fonts/**/*').pipe(dest('build/fonts'));
-}
+};
 
-function watcher(done) {
+const watcher = done => {
   watch('src/**/*.html').on('change', series(html, server.reload));
   watch('src/sass/**/*.scss').on('change', series(styles, server.reload));
   watch('src/js/**/*.js').on('change', series(scripts, server.reload));
 
   done();
-}
+};
 
-function serve() {
+const serve = () => {
   return server.init({
     server: 'build',
     notify: false,
@@ -99,15 +119,15 @@ function serve() {
     host: 'localhost',
     port: 8080,
   });
-}
+};
 
-function clean() {
+const clean = () => {
   return del('./build');
-}
+};
 
-function prepare() {
+const prepare = () => {
   return del(['**/.gitkeep', 'README.md']);
-}
+};
 
 const build = series(
   clean,

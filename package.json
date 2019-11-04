@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "gulp prepare",
     "start": "gulp start",
     "build": "gulp build",
     "sprite": "gulp sprite",
@@ -25,6 +24,7 @@
     "@babel/preset-env": "^7.5.4",
     "autoprefixer": "^9.6.1",
     "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
     "del": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
@@ -33,14 +33,19 @@
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.0.0",
+    "gulp-newer": "^1.4.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^4.0.2",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^9.0.0",
     "gulp-svgstore": "^7.0.1",
     "gulp-uglify": "^3.0.2",
-    "stylelint": "^10.1.0"
+    "postcss-assets": "^5.0.0",
+    "stylelint": "^10.1.0",
+    "usedcss": "^1.0.7"
   }
 }
