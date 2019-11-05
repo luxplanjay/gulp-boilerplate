@@ -1,49 +1,100 @@
-# Gulp Starter Kit - basic boilerplate
+![Logo of the project](./banner.png)
 
-![banner.png](https://i.ibb.co/2tX2gRk/banner.png)
+# Gulp Starter Kit &middot; [![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/npm/npm) [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
 
-- Able to assemble _html, sass, images, fonts_
-- Uses gulp-rigger to include html-chunks
-- Generates _svg sprite_
-- Uses _stylelint_ to lint _scss_
-- All errors are printed to the console
-- Adds vendor prefixes
-- Optimizes images
-- Merges same media queries
-- Minifies build files
+Базовая Gulp-сборка для верстки.
 
-## Warning
+- Собирает и оптимизирует `html`, `sass`, изображения и шрифты
+- Использует `gulp-rigger` для работы с html-chunks
+- Включает файлы настроек различных линтеров
+- Все ошибки логируются в консоль
+- Добавляет вендорные префиксы
+- Оптимизиуерт медиазапросы
+- Есть режим разработки и сборки в прод
 
-If you are a Windows user please execute this command in your terminal
+## Developing
 
-```plain
+### Prerequisites
+
+Для корректной работы компилятора SASS и других инструментов, в терминале
+необходимо выполнить следующие команды.
+
+Пользователям Windows.
+
+```shell
 npm install --global windows-build-tools
 ```
 
-If you are a Linux user please execute this command in your terminal
+Пользователям Linux.
 
-```plain
+```shell
 sudo apt-get install gcc g++ make
 ```
 
-## How to use
+### Setting up Dev
 
-- Download, clone or fork this repo
-- In terminal, navigate to the repo's root folder
-- Run `npm install`, this will install all dependencies and get rid of junk files
-- After all deps are installed, start developement with `npm start`
-- Executing `npm run build` will prepare your project for deployment
-- Executing `npm run sprite` will rebuild svg sprite
-- Executing `npm run images` will rebuild non sprite images
+Для быстрого старта необходимо склонировать репозиторий.
 
-## Folders
+```shell
+git clone https://github.com/luxplanjay/gulp-starter-kit.git
+```
 
-- Put all styles in `src/sass` and import everything in `styles.scss`
-- Put images in `src/images` folder
-- If you need a svg sprite, put all svg files in `src/images/icons`, while naming them `icon-[name].svg`. Filename will be used as a symbol `id`
-- Put fonts in `src/fonts` folder
-- Pull all html chunks to be processed by rigger in `src/html`
+Затем перейти в папку проекта.
 
-## Updates and bugs
+```shell
+cd gulp-starter-kit
+```
 
-If you've found a bug or would like to propose an update, make a fork of this repo and open a pull request with some comments about an update. Thx!
+Находясь в папке проекта удалить папку `.git` выполнив следующую команду.
+
+```shell
+npx rimraf .git
+```
+
+Установить все зависимости.
+
+```shell
+npm install
+```
+
+И запустить режим разработки.
+
+```shell
+npm start
+```
+
+Во вкладке браузера перейти по адресу
+[http://localhost:8080](http://localhost:8080).
+
+### Building
+
+Для того чтобы создать оптимизированные файлы для хостинга, необходимо выполнить
+следующую команду. В корне проекта появится папка `build` со всеми
+оптимизированными ресурсами.
+
+```shell
+npm run build
+```
+
+## Configuration
+
+- Все файлы стилей должны лежать в папке `src/sass` и импортироваться в
+  `src/sass/main.scss`
+- Изображения добавляйте в папку `src/images`
+- Локальные шрифты идут в папку `src/fonts`
+
+Пример изображения в HTML, после того как файл `picture.png` был добавлен в
+папку `src/images`.
+
+```html
+<img src="/images/picture.png" />
+```
+
+Пример изображения в CSS, после того как файл `picture.png` был добавлен в папку
+`src/images`.
+
+```css
+.my-class {
+  background-image: url('/images/picture.png');
+}
+```
