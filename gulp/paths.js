@@ -10,6 +10,7 @@ module.exports = {
     html: 'src/**/*.html',
     css: 'src/sass/**/*.scss',
     js: 'src/js/**/*.js',
+    images: 'src/images/**/*',
     fonts: 'src/fonts/**/*',
   },
   build: {

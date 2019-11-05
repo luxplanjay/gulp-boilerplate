@@ -1,17 +1,9 @@
 'use strict';
 
+const { series, parallel, watch } = require('gulp');
 const requireDir = require('require-dir');
 const tasks = requireDir('./gulp/tasks', { recurse: true });
 const paths = require('./gulp/paths');
-const mode = require('gulp-mode')();
-
-console.log('Mode: ', mode);
-
-exports.html = tasks.html;
-exports.images = tasks.images;
-exports.css = tasks.css;
-
-const { series, parallel, watch } = require('gulp');
 
 // const svgstore = require('gulp-svgstore');
 // const babel = require('gulp-babel');
@@ -22,6 +14,7 @@ const browserSync = require('browser-sync').create();
 
 const serve = () => {
   return browserSync.init({
+    // baseDir: './',
     server: 'build',
     notify: false,
     open: false,
@@ -43,6 +36,8 @@ const watcher = done => {
 
   watch(paths.watch.css).on('change', series(tasks.css, browserSync.reload));
 
+  watch(paths.watch.images, tasks.images);
+
   //   watch('src/js/**/*.js').on('change', series(scripts, server.reload));
 
   done();
@@ -57,12 +52,11 @@ exports.start = series(
 
 exports.build = series(
   tasks.clean,
-  parallel(tasks.images, tasks.css, tasks.fonts, tasks.html),
+  tasks.images,
+  parallel(tasks.css, tasks.fonts, tasks.html),
 );
 
 // exports.prepare = prepare;
-// exports.build = build;
-// exports.start = start;
 
 // const scripts = () => {
 //   return src('src/js/**/*.js')

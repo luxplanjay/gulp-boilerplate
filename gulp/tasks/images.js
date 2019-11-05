@@ -1,37 +1,33 @@
-const { src, dest } = require('gulp');
+const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
 const newer = require('gulp-newer');
 const size = require('gulp-size');
+const mode = require('gulp-mode')();
 const paths = require('../paths');
 
+const imageMinConfig = {
+  jpegtran: { progressive: true },
+  optipng: { optimizationLevel: 5 },
+  svgo: {
+    plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
+  },
+};
+
 const images = () => {
-  return src(paths.src.images)
+  return gulp
+    .src(paths.src.images)
     .pipe(newer(paths.build.images))
     .pipe(
-      imagemin([
-        imagemin.jpegtran({ progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo({
-          plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
-        }),
-      ]),
+      mode.production(
+        imagemin([
+          imagemin.jpegtran(imageMinConfig.jpegtran),
+          imagemin.optipng(imageMinConfig.optipng),
+          imagemin.svgo(imageMinConfig.svgo),
+        ]),
+      ),
     )
     .pipe(size({ showFiles: true }))
-    .pipe(dest(paths.build.images));
+    .pipe(gulp.dest(paths.build.images));
 };
 
 module.exports = images;
-
-// const imagesOld = () => {
-//   return src(['src/images/**/*.{png,jpg,jpeg,svg}', '!src/images/icons/**/*'])
-//     .pipe(
-//       imagemin([
-//         imagemin.jpegtran({ progressive: true }),
-//         imagemin.optipng({ optimizationLevel: 5 }),
-//         imagemin.svgo({
-//           plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
-//         }),
-//       ]),
-//     )
-//     .pipe(dest('build/images'));
-// };
