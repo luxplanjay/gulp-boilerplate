@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "gulp start --development",
+    "start": "cross-env PORT=8080 gulp start --development ",
     "build": "gulp build --production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -22,6 +22,7 @@
   "devDependencies": {
     "autoprefixer": "^9.7.1",
     "browser-sync": "^2.26.7",
+    "cross-env": "^6.0.3",
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
     "gh-pages": "^2.1.1",
