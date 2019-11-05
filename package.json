@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp start --development",
-    "build": "gulp build --production",
-    "sprite": "gulp sprite",
-    "images": "gulp images"
+    "build": "gulp build --production"
   },
   "repository": {
     "type": "git",
@@ -18,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/axZerk/gulp-starter-kit/issues"
   },
-  "homepage": "https://github.com/axZerk/gulp-starter-kit#readme",
+  "homepage": "https://github.com/axZerk/gulp-starter-kit",
   "devDependencies": {
     "@babel/core": "^7.7.0",
     "@babel/preset-env": "^7.7.0",
