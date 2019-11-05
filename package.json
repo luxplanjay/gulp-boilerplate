@@ -9,7 +9,7 @@
     "sprite": "gulp sprite",
     "images": "gulp images",
     "css": "gulp css",
-    "html": "gulp html"
+    "html": "gulp html --production"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.1.1",
+    "gulp-mode": "^1.0.2",
     "gulp-newer": "^1.4.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",

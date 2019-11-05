@@ -3,6 +3,9 @@
 const requireDir = require('require-dir');
 const tasks = requireDir('./gulp/tasks', { recurse: true });
 const paths = require('./gulp/paths');
+const mode = require('gulp-mode')();
+
+console.log('Mode: ', mode);
 
 exports.html = tasks.html;
 exports.images = tasks.images;
@@ -10,15 +13,15 @@ exports.css = tasks.css;
 
 const { src, dest, series, parallel, watch } = require('gulp');
 
-const del = require('del');
-const svgstore = require('gulp-svgstore');
-const plumber = require('gulp-plumber');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
-const concat = require('gulp-concat');
-const rename = require('gulp-rename');
+// const svgstore = require('gulp-svgstore');
+// const plumber = require('gulp-plumber');
+// const babel = require('gulp-babel');
+// const uglify = require('gulp-uglify');
+// const concat = require('gulp-concat');
+// const rename = require('gulp-rename');
+// const size = require('gulp-size');
+
 const server = require('browser-sync').create();
-const size = require('gulp-size');
 
 const serve = () => {
   return server.init({
@@ -34,22 +37,34 @@ const serve = () => {
 };
 
 const watcher = done => {
+  watch(paths.watch.fonts).on('change', series(tasks.fonts, server.reload));
+
   watch(paths.watch.html).on('change', series(tasks.html, server.reload));
 
   watch(paths.watch.css).on('change', series(tasks.css, server.reload));
 
+  //   watch('src/js/**/*.js').on('change', series(scripts, server.reload));
+
   done();
 };
 
-exports.start = series(tasks.css, watcher, serve);
+exports.start = series(
+  tasks.clean,
+  parallel(tasks.images, tasks.css, tasks.html),
+  watcher,
+  serve,
+);
 
-// const watcher = done => {
-// watch('src/**/*.html').on('change', series(html, server.reload));
-//   watch('src/sass/**/*.scss').on('change', series(styles, server.reload));
-//   watch('src/js/**/*.js').on('change', series(scripts, server.reload));
+// const build = series(
+//   clean,
+//   parallel(sprite, images, fonts, html, styles, scripts),
+// );
 
-//   done();
-// };
+// const start = series(build, watcher, serve);
+
+// exports.prepare = prepare;
+// exports.build = build;
+// exports.start = start;
 
 // const scripts = () => {
 //   return src('src/js/**/*.js')
@@ -69,33 +84,6 @@ exports.start = series(tasks.css, watcher, serve);
 //     .pipe(dest('build/images'));
 // };
 
-// const fonts = () => {
-//   return src('src/fonts/**/*').pipe(dest('build/fonts'));
-// };
-
-// const watcher = done => {
-//   watch('src/**/*.html').on('change', series(html, server.reload));
-//   watch('src/sass/**/*.scss').on('change', series(styles, server.reload));
-//   watch('src/js/**/*.js').on('change', series(scripts, server.reload));
-
-//   done();
-// };
-
-// const clean = () => {
-//   return del('./build');
-// };
-
 // const prepare = () => {
 //   return del(['**/.gitkeep', 'README.md']);
 // };
-
-// const build = series(
-//   clean,
-//   parallel(sprite, images, fonts, html, styles, scripts),
-// );
-
-// const start = series(build, watcher, serve);
-
-// exports.prepare = prepare;
-// exports.build = build;
-// exports.start = start;

@@ -46,6 +46,7 @@ const css = () => {
           }),
           // TODO: prod only maybe
           autoprefixer(),
+          // TODO: prod only
           // cssnano,
         ]),
       )
