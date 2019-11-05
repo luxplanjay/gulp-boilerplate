@@ -2,17 +2,17 @@
 
 const requireDir = require('require-dir');
 const tasks = requireDir('./gulp/tasks', { recurse: true });
+const paths = require('./gulp/paths');
 
+exports.html = tasks.html;
 exports.images = tasks.images;
-exports.styles = tasks.styles;
+exports.css = tasks.css;
 
 const { src, dest, series, parallel, watch } = require('gulp');
 
 const del = require('del');
-const htmlmin = require('gulp-htmlmin');
 const svgstore = require('gulp-svgstore');
 const plumber = require('gulp-plumber');
-const rigger = require('gulp-rigger');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
@@ -20,34 +20,35 @@ const rename = require('gulp-rename');
 const server = require('browser-sync').create();
 const size = require('gulp-size');
 
-// const html = () => {
-//   return src('src/*.html')
-//     .pipe(rigger())
-//     .pipe(htmlmin({ collapseWhitespace: true }))
-//     .pipe(dest('build'));
-// };
+const serve = () => {
+  return server.init({
+    server: 'build',
+    notify: false,
+    open: false,
+    cors: true,
+    ui: false,
+    logPrefix: 'DevServer',
+    host: 'localhost',
+    port: 8080,
+  });
+};
 
-// const styles = () => {
-//   return src('src/sass/styles.scss')
-//     .pipe(plumber())
-//     .pipe(
-//       stylelint({
-//         reporters: [{ formatter: 'string', console: true }],
-//       }),
-//     )
-//     .pipe(sass())
-//     .pipe(
-//       postcss([
-//         autoprefixer({
-//           browsers: ['last 2 versions'],
-//         }),
-//       ]),
-//     )
-//     .pipe(gcmq())
-//     .pipe(csso())
-//     .pipe(rename('styles.min.css'))
-//     .pipe(dest('build/css'))
-//     .pipe(server.stream());
+const watcher = done => {
+  watch(paths.watch.html).on('change', series(tasks.html, server.reload));
+
+  watch(paths.watch.css).on('change', series(tasks.css, server.reload));
+
+  done();
+};
+
+exports.start = series(tasks.css, watcher, serve);
+
+// const watcher = done => {
+// watch('src/**/*.html').on('change', series(html, server.reload));
+//   watch('src/sass/**/*.scss').on('change', series(styles, server.reload));
+//   watch('src/js/**/*.js').on('change', series(scripts, server.reload));
+
+//   done();
 // };
 
 // const scripts = () => {
@@ -78,19 +79,6 @@ const size = require('gulp-size');
 //   watch('src/js/**/*.js').on('change', series(scripts, server.reload));
 
 //   done();
-// };
-
-// const serve = () => {
-//   return server.init({
-//     server: 'build',
-//     notify: false,
-//     open: false,
-//     cors: true,
-//     ui: false,
-//     logPrefix: 'DevServer',
-//     host: 'localhost',
-//     port: 8080,
-//   });
 // };
 
 // const clean = () => {

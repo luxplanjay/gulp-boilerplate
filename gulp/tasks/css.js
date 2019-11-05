@@ -11,7 +11,7 @@ const assets = require('postcss-assets');
 const usedcss = require('usedcss');
 const paths = require('../paths');
 
-const styles = () => {
+const css = () => {
   return (
     src(paths.src.css)
       // .pipe(plumber())
@@ -59,27 +59,4 @@ const styles = () => {
   // .pipe(server.stream())
 };
 
-module.exports = styles;
-
-// const styles = () => {
-//   return src('src/sass/styles.scss')
-//     .pipe(plumber())
-// .pipe(
-//   stylelint({
-//     reporters: [{ formatter: 'string', console: true }],
-//   }),
-// )
-//     .pipe(sass())
-// .pipe(
-//   postcss([
-//     autoprefixer({
-//       browsers: ['last 2 versions'],
-//     }),
-//   ]),
-// )
-//     .pipe(gcmq())
-//     .pipe(csso())
-//     .pipe(rename('styles.min.css'))
-//     .pipe(dest('build/css'))
-//     .pipe(server.stream());
-// };
+module.exports = css;
