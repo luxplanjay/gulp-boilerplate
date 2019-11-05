@@ -5,24 +5,28 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp start --development",
-    "build": "gulp build --production"
+    "build": "gulp build --production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axZerk/gulp-starter-kit.git"
+    "url": "git+https://github.com/luxplanjay/gulp-starter-kit.git"
   },
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/axZerk/gulp-starter-kit/issues"
+    "url": "https://github.com/luxplanjay/gulp-starter-kit/issues"
   },
-  "homepage": "https://github.com/axZerk/gulp-starter-kit",
+  "homepage": "https://luxplanjay.github.io/gulp-starter-kit",
   "devDependencies": {
     "autoprefixer": "^9.7.1",
     "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
+    "gh-pages": "^2.1.1",
     "gulp": "^4.0.2",
+    "gulp-cache-bust": "^1.4.1",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.1.1",
