@@ -18,15 +18,11 @@
   },
   "homepage": "https://github.com/axZerk/gulp-starter-kit",
   "devDependencies": {
-    "@babel/core": "^7.7.0",
-    "@babel/preset-env": "^7.7.0",
     "autoprefixer": "^9.7.1",
     "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-concat": "^2.6.1",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.1.1",
@@ -39,8 +35,6 @@
     "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-svgstore": "^7.0.1",
-    "gulp-uglify": "^3.0.2",
     "require-dir": "^1.2.0",
     "usedcss": "^1.0.7"
   }
