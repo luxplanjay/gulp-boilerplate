@@ -43,7 +43,6 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svgstore": "^7.0.1",
     "gulp-uglify": "^3.0.2",
-    "postcss-assets": "^5.0.0",
     "require-dir": "^1.2.0",
     "usedcss": "^1.0.7"
   }
