@@ -18,9 +18,14 @@ $font-main: sans-serif;
 $font-size: 100%;
 
 body {
+  user-select: none;
   font-family: $font-main;
   font-size: $font-size;
   color: #444;
   background-color: #fff;
   background-image: url('browser-js.png');
+}
+
+.button-qwe {
+  color: red;
 }

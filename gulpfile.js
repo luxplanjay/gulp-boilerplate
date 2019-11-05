@@ -11,20 +11,17 @@ exports.html = tasks.html;
 exports.images = tasks.images;
 exports.css = tasks.css;
 
-const { src, dest, series, parallel, watch } = require('gulp');
+const { series, parallel, watch } = require('gulp');
 
 // const svgstore = require('gulp-svgstore');
-// const plumber = require('gulp-plumber');
 // const babel = require('gulp-babel');
 // const uglify = require('gulp-uglify');
 // const concat = require('gulp-concat');
-// const rename = require('gulp-rename');
-// const size = require('gulp-size');
 
-const server = require('browser-sync').create();
+const browserSync = require('browser-sync').create();
 
 const serve = () => {
-  return server.init({
+  return browserSync.init({
     server: 'build',
     notify: false,
     open: false,
@@ -37,11 +34,14 @@ const serve = () => {
 };
 
 const watcher = done => {
-  watch(paths.watch.fonts).on('change', series(tasks.fonts, server.reload));
+  watch(paths.watch.fonts).on(
+    'change',
+    series(tasks.fonts, browserSync.reload),
+  );
 
-  watch(paths.watch.html).on('change', series(tasks.html, server.reload));
+  watch(paths.watch.html).on('change', series(tasks.html, browserSync.reload));
 
-  watch(paths.watch.css).on('change', series(tasks.css, server.reload));
+  watch(paths.watch.css).on('change', series(tasks.css, browserSync.reload));
 
   //   watch('src/js/**/*.js').on('change', series(scripts, server.reload));
 
@@ -50,17 +50,15 @@ const watcher = done => {
 
 exports.start = series(
   tasks.clean,
-  parallel(tasks.images, tasks.css, tasks.html),
+  parallel(tasks.images, tasks.css, tasks.fonts, tasks.html),
   watcher,
   serve,
 );
 
-// const build = series(
-//   clean,
-//   parallel(sprite, images, fonts, html, styles, scripts),
-// );
-
-// const start = series(build, watcher, serve);
+exports.build = series(
+  tasks.clean,
+  parallel(tasks.images, tasks.css, tasks.fonts, tasks.html),
+);
 
 // exports.prepare = prepare;
 // exports.build = build;
