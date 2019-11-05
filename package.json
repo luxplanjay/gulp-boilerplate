@@ -8,7 +8,7 @@
     "build": "gulp build",
     "sprite": "gulp sprite",
     "images": "gulp images",
-    "css": "gulp css"
+    "styles": "gulp styles"
   },
   "repository": {
     "type": "git",
