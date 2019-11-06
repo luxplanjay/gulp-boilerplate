@@ -20,5 +20,10 @@ module.exports = {
     images: 'build/images',
     fonts: 'build/fonts',
   },
+  inject: {
+    html: 'build/index.html',
+    css: 'build/css/**/*.css',
+    js: 'build/js/**/*.js',
+  },
   clean: 'build/',
 };

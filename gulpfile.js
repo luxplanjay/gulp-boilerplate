@@ -34,6 +34,7 @@ exports.start = series(
   tasks.clean,
   tasks.images,
   parallel(tasks.css, tasks.fonts, tasks.scripts, tasks.html),
+  tasks.inject,
   watcher,
   serve,
 );
@@ -42,4 +43,5 @@ exports.build = series(
   tasks.clean,
   tasks.images,
   parallel(tasks.css, tasks.fonts, tasks.scripts, tasks.html),
+  tasks.inject,
 );

@@ -31,9 +31,11 @@
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0-beta.2",
     "gulp-cache-bust": "^1.4.1",
+    "gulp-concat": "^2.6.1",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.1.1",
+    "gulp-inject": "^5.0.4",
     "gulp-mode": "^1.0.2",
     "gulp-newer": "^1.4.0",
     "gulp-plumber": "^1.2.1",
@@ -43,6 +45,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
     "require-dir": "^1.2.0",
     "usedcss": "^1.0.7"
   }
