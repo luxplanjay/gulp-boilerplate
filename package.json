@@ -20,6 +20,8 @@
     "url": "https://github.com/luxplanjay/gulp-starter-kit/issues"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
     "autoprefixer": "^9.7.1",
     "browser-sync": "^2.26.7",
     "cross-env": "^6.0.3",
@@ -27,6 +29,7 @@
     "del": "^5.1.0",
     "gh-pages": "^2.1.1",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0-beta.2",
     "gulp-cache-bust": "^1.4.1",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
