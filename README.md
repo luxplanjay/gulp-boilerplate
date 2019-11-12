@@ -4,7 +4,7 @@
 
 Базовая Gulp-сборка для верстки.
 
-- Собирает и оптимизирует `html`, `sass`, изображения и шрифты
+- Собирает и оптимизирует `html`, `sass`, `js`, изображения и шрифты
 - Использует `gulp-rigger` для работы с html-chunks
 - Включает файлы настроек различных линтеров
 - Все ошибки логируются в консоль
@@ -41,10 +41,16 @@ sudo apt-get install gcc g++ make
 git clone https://github.com/luxplanjay/gulp-starter-kit.git
 ```
 
+Переименовать папку сборки по имени вашего проекта.
+
+```shell
+mv gulp-starter-kit имя_проекта
+```
+
 Затем перейти в папку проекта.
 
 ```shell
-cd gulp-starter-kit
+cd имя_проекта
 ```
 
 Находясь в папке проекта удалить папку `.git` выполнив следующую команду.
@@ -66,7 +72,7 @@ npm start
 ```
 
 Во вкладке браузера перейти по адресу
-[http://localhost:8080](http://localhost:8080).
+[http://localhost:1234](http://localhost:1234).
 
 ### Building
 
@@ -110,7 +116,7 @@ npm run deploy
 папку `src/images`.
 
 ```html
-<img src="images/picture.png" />
+<img src="./images/picture.png" />
 ```
 
 Пример изображения в CSS, после того как файл `picture.png` был добавлен в папку
