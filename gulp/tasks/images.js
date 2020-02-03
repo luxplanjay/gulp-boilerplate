@@ -6,10 +6,10 @@ const mode = require('gulp-mode')();
 const paths = require('../paths');
 
 const imageMinConfig = {
-  jpegtran: { progressive: true },
+  mozjpeg: { quality: 75, progressive: true },
   optipng: { optimizationLevel: 5 },
   svgo: {
-    plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
+    plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
   },
 };
 
@@ -20,7 +20,7 @@ const images = () => {
     .pipe(
       mode.production(
         imagemin([
-          imagemin.jpegtran(imageMinConfig.jpegtran),
+          imagemin.mozjpeg(imageMinConfig.mozjpeg),
           imagemin.optipng(imageMinConfig.optipng),
           imagemin.svgo(imageMinConfig.svgo),
         ]),
