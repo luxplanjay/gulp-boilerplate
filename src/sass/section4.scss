@@ -10,10 +10,6 @@ p {
 }
 
 .container {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
   padding: 0 30px;
   margin-bottom: 30px;
 }
@@ -39,6 +35,7 @@ p {
 .title {
   font-size: 20px;
   // width: 184px;
+  padding-top: 30px;
   margin-bottom: 36px;
 }
 
@@ -133,15 +130,12 @@ p {
   }
 
   .img-box {
-    // flex-direction: row;
-    // flex-wrap: wrap;
     background-image: url(../images/map2-3.png);
     background-repeat: no-repeat;
     background-size: auto;
     background-position: 81% 88%;
     box-shadow: -6px 5px 5px 8px rgba(0, 0, 0, 0.3);
     width: 700px;
-    // margin: 0 auto;
     margin-bottom: 60px;
   }
 
@@ -217,6 +211,7 @@ p {
 
   .blocks {
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .title {
@@ -228,7 +223,7 @@ p {
   }
 
   .img-box {
-    margin-right: 90px;
+    margin-right: 70px;
   }
 
   .mini-box {
