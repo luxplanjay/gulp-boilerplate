@@ -95,7 +95,7 @@ h3 {
 
 @media screen and (min-width: 768px) {
   .container__section2 {
-    padding: 0, 64px;
+    padding: 0 64px;
   }
 
   .section2 {
@@ -151,6 +151,7 @@ h3 {
   }
 
   .container__section2 {
+    width: 1170px;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
