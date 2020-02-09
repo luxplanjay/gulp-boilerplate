@@ -70,6 +70,9 @@
     flex-direction: row;
     justify-content: start;
     align-items: center;
+    margin: 0 auto;
+    padding-bottom: 18px;
+    align-items: flex-start;
   }
 
   .footer__moto {
@@ -77,11 +80,6 @@
     line-height: 30px;
     padding-left: 14px;
     padding-top: 0;
-  }
-
-  .footer__container {
-    padding-bottom: 18px;
-    align-items: flex-start;
   }
 }
 
@@ -97,6 +95,7 @@
   }
 
   .footer__container {
-    padding-bottom: 60px;
+    width: 1170px;
+    margin: 0 auto;
   }
 }
