@@ -1,0 +1,221 @@
+@import 'normalize.scss';
+@import 'base.scss';
+@import 'var.scss';
+
+.header {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 30px;
+}
+.section-wrapper{
+    background: $bg-gradient;
+    display: flex;
+    padding: 0 30px 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.section1-link {
+    margin-bottom: 25px;
+}
+.section1-wrapper {
+    width: 260px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.section1__parag {
+    font-size: 14px;
+    color: $white-font;
+    line-height: 18px;
+    margin-bottom: 25px;
+}
+.section1__title {
+    color: $light-blue;
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 25px;
+}
+.section1-parag__span {
+    font-size: 14px;
+}
+.section1-parag-gold {
+    font-size: 20px;
+    line-height: 25px;
+    color: $gold-brown;
+    margin-bottom: 20px;
+}
+.section1-form-wrap {
+    background-color: $form-bgc;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    box-shadow: 0px 12px 70px 0px rgba(121, 139, 188, 0.48);
+}
+.section1-form {
+    height: 195px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.section1-form__title {
+    padding: 0 30px;
+    font-size: 16px;
+}
+.section1-form-parag {
+    padding: 0 30px;
+}
+.section1-form__input {
+    height: 40px;
+    border: 1px solid $form-border;
+    padding-left: 15px;
+}
+.section1-form__btn {
+    background-color: $form-btn;
+    color: $white-font;
+    height: 40px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    transition: all 150ms ease-in;
+    
+    &:hover {
+        background-color: $hover-btn;
+    }
+}
+.desktop-wrap2 {
+    display: flex;
+    flex-direction: column;
+}
+.section1__conf {
+    margin: 0 auto;
+    align-self: center;
+    font-size: 13px;
+    color: $conf-link-color;
+    text-decoration: none;
+}
+@media (min-width: 748px) {
+    .flex-wrap {
+        width: 100%;
+    }
+    .header {
+        padding: 30px 0 60px;
+    }
+    .section-wrapper {
+        padding: 0 60px 40px;
+        align-items: flex-start;
+    }
+    .section1__parag {
+        width: 497px;
+        line-height: 18px;
+    }
+    .tablet-parag {
+        font-size: 18px;
+        width: 575px;
+        line-height: 26px;
+    }
+    .section1__title {
+        font-size: 40px;
+        line-height: 50px;
+    }
+    .section1-parag__span {
+        font-size: 18px;
+    }
+    .section1-parag-gold {
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 30px;
+    }
+    .desktop-wrap2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .section1-form-wrap {
+        width: 100%;
+        height: 400px;
+    }
+    .section1-form {
+        display: flex;
+        width:80%;
+    }
+    
+   
+    .section1-form__title {
+        text-align: center;
+        font-size: 24px;
+        
+        padding: 0 120px;
+    }
+    .section1-form-parag {
+        font-size: 13px;
+        width: 100%;
+        text-align: center;
+    }
+}
+@media (min-width: 1180px) {
+    .header {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .section-wrapper {
+        height: 950px;
+        padding: 0 60px;
+    }
+    .section1-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 680px;
+    }
+    .flex-wrap {
+        margin: 0 auto;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;;
+    }
+    .desktop-wrap {
+        width: 640px;
+    }
+    .desktop-wrap2 {
+        display: flex;
+        flex-direction: column;
+    }
+    .section1-form-wrap {
+        width: 463px;
+    }
+    .section1__parag {
+        margin-bottom: 40px;
+        font-size: 20px;
+    }
+    .section1__title {
+        width: 95%;
+        font-size: 60px;
+        line-height: 70px;
+    }
+    .section1-form-wrap {
+        background-color: rgb(255, 255, 255);
+        width: 460px;
+        height: 669px;     
+    }
+    .section1-form__title {
+        font-size: 30px;
+        padding: 0 25px;
+        text-align: start;
+    }
+    .section1-form-parag {
+        text-align: start;
+        padding: 0 25px;
+        font-size: 18px;
+    }
+    .section1-form {
+        height: 355px;
+        width: 90%;
+    }
+}
