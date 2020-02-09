@@ -11,7 +11,7 @@ h3 {
   padding-bottom: 40px;
 }
 
-.container-section2 {
+.container__section2 {
   padding-left: 30px;
   padding-right: 30px;
   margin: 0 auto;
@@ -35,7 +35,7 @@ h3 {
     padding-left: 20px;
 
     &:before {
-      content: "[";
+      content: '[';
       display: block;
       width: 20px;
       position: absolute;
@@ -49,7 +49,7 @@ h3 {
     padding-right: 8px;
 
     &:after {
-      content: "]";
+      content: ']';
       display: block;
       position: absolute;
       right: 0;
@@ -78,7 +78,7 @@ h3 {
     }
 
     &:before {
-      content: "\02192";
+      content: '\02192';
       display: block;
       font-family: 'Acrom', sans-serif;
       width: 17px;
@@ -94,7 +94,7 @@ h3 {
 }
 
 @media screen and (min-width: 768px) {
-  .container-section2 {
+  .container__section2 {
     padding: 0, 64px;
   }
 
@@ -113,7 +113,7 @@ h3 {
 
     &--after {
       &:after {
-        content: "_  ]";
+        content: '_  ]';
         display: block;
         right: 65px;
       }
@@ -150,8 +150,7 @@ h3 {
     }
   }
 
-  .container-section2 {
-    width: 1170px;
+  .container__section2 {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
