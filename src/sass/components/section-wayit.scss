@@ -6,10 +6,9 @@
   background: radial-gradient(circle, rgba(19, 41, 69, 1) 0%, rgba(24, 28, 39, 1) 100%);
 }
 
-.container {
-  width: 260px;
-  margin: 0 auto;
-  padding: 0;
+.section-wayit__container {
+  margin: 0;
+  padding: 0 30px;
 }
 
 .section-wayit__title {
@@ -33,7 +32,7 @@
   padding: 0;
   margin-bottom: 50px;
 
-  &::before{
+  &::before {
     content: "";
     display: block;
     width: 60px;
@@ -74,7 +73,22 @@ button {
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .section-wayit__container {
     width: 640px;
+  }
+
+  .section-wayit__button {
+    width: 530px;
+    height: 70px;
+  }
+
+  .section-wayit__subtitle{
+    width: 380px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .section-wayit__container {
+    width: 1170px;
   }
 }
