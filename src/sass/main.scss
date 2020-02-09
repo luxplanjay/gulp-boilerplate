@@ -1,7 +1,7 @@
-/*
- * Все паршалы импортировать в этот файл
- */
-
 @import 'normalize.scss';
 @import 'base.scss';
+
+@import 'style.scss';
+@import 'var.scss';
+@import 'section1.scss';
 @import './section4.scss';

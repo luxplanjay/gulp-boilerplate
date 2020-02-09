@@ -1,0 +1,80 @@
+.section-wayit__walpaper {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background: rgb(19, 41, 69);
+  background: radial-gradient(circle, rgba(19, 41, 69, 1) 0%, rgba(24, 28, 39, 1) 100%);
+}
+
+.container {
+  width: 260px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.section-wayit__title {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 1.25;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  padding-top: 34px;
+  margin-bottom: 22px;
+}
+
+.section-wayit__subtitle {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  line-height: 1.571;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 50px;
+
+  &::before{
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: rgb(0, 234, 255);
+    margin-bottom: 16px;
+  }
+}
+
+.section-wayit__main-title {
+  font-size: 20px;
+  color: rgb(0, 234, 255);
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.section-wayit__button {
+  background-color: rgb(255, 112, 42);
+  box-shadow: 0px 2px 10px 0px rgba(255, 107, 8, 0.59);
+  width: 260px;
+  height: 70px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 640px;
+  }
+}
