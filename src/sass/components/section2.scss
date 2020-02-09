@@ -151,7 +151,8 @@ h3 {
   }
 
   .container__section2 {
-    width: 1170px;
+    max-width: 1200px;
+    padding: 0;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
