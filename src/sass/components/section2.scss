@@ -6,17 +6,15 @@ h3 {
   padding: 0;
 }
 
-.container {
-  width: 260px;
-  margin: auto;
-}
-
 .section2 {
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
-.container__section2 {
+.container-section2 {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,6 +27,7 @@ h3 {
   font-size: 20px;
   text-align: left;
   color: rgb(34, 34, 34);
+  margin: 0 auto;
   margin-bottom: 28px;
   position: relative;
 
@@ -60,7 +59,7 @@ h3 {
 }
 
 .question-list {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   list-style: none;
   font-family: 'Acrom', sans-serif;
@@ -95,24 +94,28 @@ h3 {
 }
 
 @media screen and (min-width: 768px) {
-  .container {
-    width: 640px;
+  .container-section2 {
+    padding: 0, 64px;
   }
 
   .section2 {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
 
-    &__title {
-      font-size: 30px;
-      line-height: 1;
+  .wrapper-title {
+    margin: 0 auto;
+  }
 
-      &--after {
-        &:after {
-          content: "_  ]";
-          display: block;
-          right: 140px;
-        }
+  .section2__title {
+    font-size: 30px;
+    line-height: 1;
+
+    &--after {
+      &:after {
+        content: "_  ]";
+        display: block;
+        right: 65px;
       }
     }
   }
@@ -129,11 +132,6 @@ h3 {
 }
 
 @media screen and (min-width: 1200px) {
-  .container {
-    width: 1170px;
-    align-items: flex-start;
-  }
-
   .section2 {
     padding-top: 134px;
     padding-bottom: 100px;
@@ -150,33 +148,37 @@ h3 {
         white-space: nowrap;
       }
     }
-
-    .question-list {
-      width: inherit;
-
-      &__items {
-        font-size: 18px;
-        line-height: 30px;
-        padding-right: 45px;
-
-        &:not(:last-child) {
-          padding-bottom: 32px;
-        }
-      }
-    }
   }
 
-  .container__section2 {
+  .container-section2 {
+    width: 1170px;
+    display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
   }
 
+  .question-list {
+    width: inherit;
+
+    &__items {
+      font-size: 18px;
+      line-height: 30px;
+      padding-right: 45px;
+
+      &:not(:last-child) {
+        padding-bottom: 32px;
+      }
+    }
+  }
+
   .wrapper-title {
     width: 495px;
+    margin: 0;
   }
 
   .wrapper-quetions {
     width: 500px;
+    margin: 0;
   }
-
 }
