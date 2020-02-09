@@ -10,7 +10,7 @@
 .section-wrapper{
     background: $bg-gradient;
     display: flex;
-    padding: 0 30px 25px;
+    padding: 0 45px 25px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -172,6 +172,7 @@
         flex-direction: column;
         justify-content: space-between;
         height: 680px;
+        margin-right: 60px;
     }
     .flex-wrap {
         margin: 0 auto;
@@ -201,7 +202,7 @@
     }
     .section1-form-wrap {
         background-color: rgb(255, 255, 255);
-        width: 460px;
+        width: 440px;
         height: 669px;     
     }
     .section1-form__title {
