@@ -1,0 +1,232 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 0 30px;
+  margin-bottom: 30px;
+}
+
+.blocks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/map.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 50% 80%;
+}
+
+.title {
+  font-size: 20px;
+  // width: 184px;
+  padding-top: 30px;
+  margin-bottom: 36px;
+}
+
+.undertitle {
+  font-style: 14px;
+  font-weight: 700;
+  margin-bottom: 26px;
+  // width: 260px;
+}
+
+/*первый список*/
+.list {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 30px;
+
+  .list__items {
+    width: 225px;
+    margin-bottom: 30px;
+
+    &:nth-child(6) {
+      margin-bottom: 0;
+    }
+
+    .list__number {
+      font-size: 30px;
+      font-weight: 700;
+      color: #00eaff;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+/*мини список*/
+.underlist-title {
+  // width: 210px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.mini-list {
+  display: flex;
+  margin-bottom: 36px;
+
+  .mini-list__item {
+    width: 130px;
+  }
+
+  .mini-list__number {
+    font-size: 25px;
+    font-weight: 500;
+    color: #00eaff;
+    margin-bottom: 14px;
+  }
+
+  .mini-list__text {
+    font-size: 10px;
+  }
+}
+
+/*последний список*/
+.last-title {
+  font-size: 20px;
+  // width: 240px;
+  margin-bottom: 26px;
+}
+
+.last-list__items {
+  width: 225px;
+  margin-bottom: 24px;
+  position: relative;
+
+  &:nth-child(5) {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    width: 13px;
+    height: 13px;
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: #00eaff;
+    left: -14%;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .img-box {
+    background-image: url(../images/map2-3.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 81% 88%;
+    box-shadow: -6px 5px 5px 8px rgba(0, 0, 0, 0.3);
+    width: 700px;
+    margin-bottom: 60px;
+  }
+
+  .title {
+    font-size: 30px;
+    // width: 532px;
+    text-align: center;
+    margin-bottom: 92px;
+  }
+
+  .undertitle {
+    font-size: 18px;
+    margin: 0 auto;
+    padding-top: 55px;
+    text-align: center;
+    margin-bottom: 42px;
+    // width: 400px;
+  }
+
+  /*первый список*/
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    .list__items {
+      width: 192px;
+      margin-right: 20px;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+
+      &:nth-child(n+4) {
+        margin-bottom: 0;
+      }
+
+      .list__number {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  /*мини список*/
+  .mini-box {
+    align-self: flex-start;
+    width: 250px;
+    padding-left: 38px;
+  }
+
+  .underlist-title {
+    // width: 300px;
+    font-weight: 700;
+  }
+
+  /*последний список*/
+  .last-title {
+    font-size: 30px;
+    // width: 580px;
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .blocks {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-size: 45px;
+    text-align: left;
+    // width: 532px;
+
+    margin-bottom: 92px;
+  }
+
+  .img-box {
+    margin-right: 70px;
+  }
+
+  .mini-box {
+    align-self: flex-start;
+  }
+}
