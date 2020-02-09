@@ -1,0 +1,135 @@
+.mp0 {
+  margin: 0;
+  padding: 0;
+}
+
+.section__three {
+  background-color: #edf0f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  &--logo {
+    margin: 50px 40px 35px 40px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+
+  &--btn {
+    padding: 26px 0;
+    border: none;
+    background-color: #ff702a;
+    box-shadow: 0px 2px 10px 0px rgba(255, 107, 8, 0.59);
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0 46px 60px;
+    color: #fff;
+  }
+
+  &--list {
+    list-style: none;
+    margin-bottom: 34px;
+
+    &--item {
+      background-color: #fff;
+      margin-bottom: 40px;
+      position: relative;
+      text-align: left;
+      width: 225px;
+      height: 230px;
+      box-shadow: 3px 15px 32px rgba(0, 0, 0, 0.16);
+      font-size: 16px;
+      line-height: 22px;
+      padding: 40px 40px 0 30px;
+
+      &--nom {
+        position: absolute;
+        right: 0;
+        top: -25px;
+        font-size: 70px;
+        font-weight: 700;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.section__three--list--item::before {
+  content: "";
+  display: table;
+  width: 60px;
+  height: 2px;
+  background-color: #00eaff;
+  position: absolute;
+  top: 24px;
+  left: -13px;
+}
+
+.bfont {
+  font-weight: 700;
+}
+
+@media (min-width:321px) {
+
+  .section__three--list {
+    max-width: 748px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width:768px) {
+
+  .section__three--btn,
+  .section__three--logo {
+    min-width: 532px;
+  }
+
+  .section__three {
+    &--logo {
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 40px;
+      max-width: 528px;
+    }
+
+    &--list {
+      max-width: 716px;
+      flex-direction: row;
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width:1200px) {
+  .section__three {
+
+    &--logo {
+      max-width: 1036px;
+      font-size: 48px;
+      margin-bottom: 104px;
+    }
+
+    &--btn {
+      max-width: 810px;
+      padding: 43px 0;
+    }
+
+    &--list {
+      max-width: 1140px;
+
+      &--item {
+        width: 350px;
+        height: 276px;
+        padding: 66px 36px 0 30px;
+
+        &--nom {
+          font-size: 150px;
+        }
+      }
+    }
+  }
+}
