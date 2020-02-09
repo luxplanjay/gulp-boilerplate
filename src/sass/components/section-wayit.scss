@@ -74,7 +74,7 @@ button {
 
 @media screen and (min-width: 768px) {
   .section-wayit__container {
-    width: 640px;
+    padding: 0 60px;
   }
 
   .section-wayit__button {
@@ -89,6 +89,33 @@ button {
 
 @media screen and (min-width: 1200px) {
   .section-wayit__container {
-    width: 1170px;
+    height: 647px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 40px;
+  }
+  .section-wayit__subtitle {
+    font-size: 18px;
+    position: absolute;
+    align-self: flex-end;
+    top: 43%;
+  }
+  .section-wayit__title {
+    width: 683px;
+    font-size: 30px;
+  }
+  .section-wayit__main-title {
+    width: 705px;
+    font-size: 48px;
+  }
+  .section-wayit__button {
+    width: 683px;
+    height: 109px;  
+    font-size: 30px;
+    &:hover {
+      background-color: $light-blue;
+    }
   }
 }
