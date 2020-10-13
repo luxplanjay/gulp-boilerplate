@@ -1,6 +1,6 @@
 // цвет текста
 $main-color: #ffffff;
-$accent-color: #d41443;
+$secondary-color: #d41443;
 $light-color: #ffa5ba;
 $description-color: #000000;
 $description-light: #907e82;
@@ -11,8 +11,8 @@ $bg-social-icons: #fea5bb;
 $bg-header: #ffb8ca;
 
 // фон кнопок при ховере/фокусе
-$bg-btn-accent-white: #ecebeb;
-$bg-btn-accent-red: #c7133e;
+$btn-accent-white: #ecebeb;
+$btn-accent-red: #c7133e;
 
 // время перехода (transition)
-$animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$smoothly: 250ms cubic-bezier(0.4, 0, 0.2, 1);

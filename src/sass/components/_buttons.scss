@@ -1,0 +1,30 @@
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  background-color: $main-color;
+  border-radius: 22px;
+  border: none;
+
+  color: $secondary-color;
+  @include font(16px, 21px, 700);
+  transition: $smoothly;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $btn-accent-white;
+  }
+
+  &--red {
+    background-color: $secondary-color;
+    color: $main-color;
+
+    &:hover {
+      background-color: $btn-accent-red;
+    }
+  }
+}

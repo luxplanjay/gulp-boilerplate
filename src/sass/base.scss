@@ -1,3 +1,6 @@
+@import './utils/variables';
+@import './utils/mixins';
+
 html {
   box-sizing: border-box;
 }
@@ -26,6 +29,10 @@ h6 {
   font-weight: 400;
 }
 
+h1 {
+  color: $secondary-color;
+}
+
 img {
   display: block;
   width: 100%;
@@ -34,12 +41,12 @@ img {
 
 .link {
   text-decoration: none;
-  transition: $animation;
+  transition: $smoothly;
 }
 
 .link:hover,
 .link:focus {
-  color: $accent-color;
+  color: $secondary-color;
 }
 
 .visually-hidden {
