@@ -1,3 +1,151 @@
 .location {
-  background-color: $light-color;
+  background: $bg-section;
+}
+.main {
+  /* display: block; */
+  width: 220px;
+  height: 427px;
+  left: 50px;
+  top: 5120px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 43px;
+  list-style-type: none;
+
+  /*  margin-top: -84px; */
+
+  background: $main-color;
+  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+  border-radius: 24px;
+}
+.main__food {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 186%;
+  /* or 22px */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: $main-color;
+  background: #c2e297;
+  border-radius: 4px;
+
+  margin-right: 120px;
+  margin-left: 20px;
+
+  margin-bottom: 25px;
+}
+.main__list {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 186%;
+
+  margin-right: 120px;
+  margin-left: 20px;
+
+  margin-bottom: 25px;
+
+  color: $main-color;
+  list-style-type: none;
+  text-align: center;
+
+  background: #f0d1a5;
+  border-radius: 4px;
+}
+/* .features__list {
+  text-align: center;
+} */
+.features__text {
+  margin-left: 20px;
+  margin-right: auto;
+  list-style-type: none;
+  margin-bottom: 10px;
+
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 186%;
+  /* or 22px */
+
+  letter-spacing: 0.04em;
+
+  color: $description-color;
+}
+.text {
+  margin-left: 20px;
+  margin-right: 21px;
+  list-style-type: none;
+  margin-bottom: 25px;
+
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  /* or 150% */
+
+  color: $description-light;
+}
+.line {
+  list-style-type: none;
+  border: 1px solid #e1e1e1;
+  margin-left: 20px;
+  margin-right: 21px;
+  margin-bottom: 25px;
+}
+.features__team {
+  margin-left: 20px;
+  margin-right: auto;
+  list-style-type: none;
+
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 186%;
+  /* or 22px */
+
+  color: $description-color;
+}
+.features__time {
+  margin-left: 20px;
+  margin-right: auto;
+  margin-bottom: 25px;
+
+  list-style-type: none;
+
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 186%;
+  /* identical to box height, or 22px */
+
+  color: $light-color;
+}
+.address {
+  color: $description-light;
+}
+.address__link {
+  margin-left: 20px;
+
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  text-decoration: none;
+
+  color: $description-light;
+}
+.btn {
+  display: flex;
 }
