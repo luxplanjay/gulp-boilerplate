@@ -2,24 +2,16 @@
   background: $bg-section;
 }
 .main {
-  /* display: block; */
-  width: 220px;
-  height: 427px;
-  left: 50px;
-  top: 5120px;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 43px;
-  list-style-type: none;
+  display: block;
 
-  /*  margin-top: -84px; */
-
-  background: $main-color;
-  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
-  border-radius: 24px;
+  /* margin-top: -84px; */
+  @include for-size(tablet) {
+    display: flex;
+  }
 }
+
 .main__food {
-  font-family: DM Sans;
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -41,58 +33,146 @@
   margin-bottom: 25px;
 }
 .main__list {
-  font-family: DM Sans;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 186%;
-
-  margin-right: 120px;
-  margin-left: 20px;
-
-  margin-bottom: 25px;
-
   color: $main-color;
-  list-style-type: none;
-  text-align: center;
-
   background: #f0d1a5;
   border-radius: 4px;
-}
-/* .features__list {
-  text-align: center;
-} */
-.features__text {
-  margin-left: 20px;
-  margin-right: auto;
-  list-style-type: none;
-  margin-bottom: 10px;
 
-  font-family: DM Sans;
+  @include for-size(mobile-only) {
+    width: 80px;
+    height: 16px;
+    margin-bottom: 25px;
+  }
+  @include for-size(tablet) {
+    width: 73px;
+    height: 28px;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  @include for-size(desktop) {
+    width: 73px;
+    height: 28px;
+    font-size: 16px;
+  }
+}
+.main__FOODTRUCK {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 186%;
-  /* or 22px */
+  color: $main-color;
+  background: #c2e297;
+  border-radius: 4px;
 
+  @include for-size(mobile-only) {
+    width: 80px;
+    height: 16px;
+    margin-bottom: 25px;
+  }
+  @include for-size(tablet) {
+    width: 130px;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  @include for-size(tablet) {
+    width: 138px;
+    font-size: 16px;
+  }
+}
+.features__list {
+  display: block;
+
+  width: 220px;
+  height: auto;
+  list-style: none;
+
+  padding: 43px 20px;
+  background: $main-color;
+  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+  border-radius: 24px;
+  @include for-size(mobile) {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    @include for-size(tablet) {
+      padding: 31px 44px;
+    }
+    @include for-size(desktop) {
+      padding: 44px 43px;
+    }
+    /* &:nth-child(1) {
+      margin-top: -84px;
+    } */
+  }
+  @include for-size(tablet) {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  @include for-size(desktop) {
+    width: 330px;
+    height: auto;
+    list-style: none;
+
+    background: #ffffff;
+    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+    border-radius: 24px;
+  }
+}
+.features__text {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 186%;
   letter-spacing: 0.04em;
 
   color: $description-color;
+  @include for-size(mobile) {
+    margin-bottom: 10px;
+  }
+  @include for-size(tablet) {
+    margin-bottom: 14px;
+  }
+  @include for-size(desktop) {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
 }
 .text {
-  margin-left: 20px;
-  margin-right: 21px;
-  list-style-type: none;
-  margin-bottom: 25px;
-
-  font-family: DM Sans;
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
-  /* or 150% */
 
   color: $description-light;
+
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e1e1e1;
+  @include for-size(mobile) {
+    margin-bottom: 25px;
+  }
+  @include for-size(tablet) {
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+  @include for-size(desktop) {
+    width: 243px;
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
 }
 .line {
   list-style-type: none;
@@ -100,43 +180,72 @@
   margin-left: 20px;
   margin-right: 21px;
   margin-bottom: 25px;
+
+  @include for-size(desktop) {
+    margin-left: 43px;
+    margin-right: 53px;
+    margin-bottom: 32px;
+  }
 }
 .features__team {
-  margin-left: 20px;
-  margin-right: auto;
-  list-style-type: none;
-
-  font-family: DM Sans;
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 186%;
-  /* or 22px */
-
   color: $description-color;
+
+  @include for-size(tablet) {
+    font-size: 14px;
+  }
+  @include for-size(desktop) {
+    font-size: 16px;
+  }
 }
 .features__time {
-  margin-left: 20px;
-  margin-right: auto;
-  margin-bottom: 25px;
-
-  list-style-type: none;
-
-  font-family: DM Sans;
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 186%;
-  /* identical to box height, or 22px */
-
   color: $light-color;
+
+  @include for-size(tablet) {
+    font-size: 14px;
+  }
+  @include for-size(desktop) {
+    font-size: 16px;
+  }
+}
+.features-block {
+  @include for-size(mobile) {
+    margin-bottom: 10px;
+  }
+  @include for-size(tablet) {
+    margin-bottom: 16px;
+  }
+  @include for-size(desktop) {
+    margin-bottom: 15px;
+  }
+}
+.features-block1 {
+  @include for-size(mobile) {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 25px;
+  }
+  @include for-size(desktop) {
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 32px;
+  }
 }
 .address {
   color: $description-light;
 }
 .address__link {
-  margin-left: 20px;
-
+  width: 179px;
+  height: 37px;
   font-family: DM Sans;
   font-style: normal;
   font-weight: 500;
@@ -145,7 +254,52 @@
   text-decoration: none;
 
   color: $description-light;
+
+  @include for-size(tablet) {
+    font-size: 14px;
+  }
+  @include for-size(desktop) {
+    font-size: 16px;
+  }
 }
-.btn {
-  display: flex;
+.button {
+  text-align: center;
+
+  @include for-size(tablet) {
+    text-align: center;
+  }
+}
+
+.btn1 {
+  width: 161px;
+  height: 44px;
+  color: $main-color;
+  background: #d41342;
+  border-radius: 22px;
+  @include for-size(mobile) {
+    margin-top: 54px;
+    margin-bottom: 10px;
+  }
+  @include for-size(tablet) {
+    width: 191px;
+    height: 44px;
+    margin-right: 14px;
+  }
+  @include for-size(desktop) {
+    width: 198px;
+    height: 44px;
+  }
+}
+.btn2 {
+  width: 161px;
+  height: 44px;
+  border-radius: 22px;
+  @include for-size(tablet) {
+    width: 191px;
+    height: 44px;
+  }
+  @include for-size(desktop) {
+    width: 198px;
+    height: 44px;
+  }
 }
