@@ -144,9 +144,15 @@
       margin-right: 31px;
     }
   }
-  /*  &:nth-child(1) {
+  &:nth-child(1) {
     margin-top: -84px;
-  } */
+  }
+  &:nth-child(2) {
+    margin-top: -84px;
+  }
+  &:nth-child(3) {
+    margin-top: -84px;
+  }
 }
 .features__text {
   font-family: 'DM Sans';
@@ -282,15 +288,10 @@
 }
 .button {
   @include for-size(mobile-only) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
+    margin-left: 20%;
   }
-  @include for-size(desktop) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  @include for-size(tablet) {
+    margin-left: 33%;
   }
   @include for-size(desktop-only) {
     display: flex;
@@ -310,6 +311,8 @@
   @include for-size(tablet) {
     width: 191px;
     height: 44px;
+    font-size: 16px;
+    line-height: 21px;
     margin-right: 14px;
   }
   @include for-size(desktop) {
@@ -343,16 +346,10 @@
 }
 .fon {
   @include for-size(desktop) {
-<<<<<<< Updated upstream
-    width: 1920px;
-    height: 382px;
-    background: url('../images/sectionbg.png');
-=======
     background-position: 50% 50%;
-    max-width: 1920px;
     height: 382px;
+    margin-top: 84px;
     background-repeat: no-repeat;
     background-image: url('../images/sectionbg.png');
->>>>>>> Stashed changes
   }
 }
