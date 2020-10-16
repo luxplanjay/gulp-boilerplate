@@ -144,7 +144,7 @@
       margin-right: 31px;
     }
   }
-  /* &:nth-child(1) {
+  /*  &:nth-child(1) {
     margin-top: -84px;
   } */
 }
@@ -343,8 +343,16 @@
 }
 .fon {
   @include for-size(desktop) {
+<<<<<<< Updated upstream
     width: 1920px;
     height: 382px;
     background: url('../images/sectionbg.png');
+=======
+    background-position: 50% 50%;
+    max-width: 1920px;
+    height: 382px;
+    background-repeat: no-repeat;
+    background-image: url('../images/sectionbg.png');
+>>>>>>> Stashed changes
   }
 }
