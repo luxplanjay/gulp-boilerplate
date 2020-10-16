@@ -5,8 +5,17 @@
   display: block;
 
   /* margin-top: -84px; */
+
+  @include for-size(mobile-only) {
+    margin-bottom: 54px;
+  }
   @include for-size(tablet) {
     display: flex;
+    margin-bottom: 81px;
+  }
+
+  @include for-size(desktop) {
+    margin-bottom: 86px;
   }
 }
 
@@ -97,25 +106,17 @@
   height: auto;
   list-style: none;
 
-  padding: 43px 20px;
   background: $main-color;
   box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
   border-radius: 24px;
-  @include for-size(mobile) {
+  @include for-size(mobile-only) {
+    padding: 43px 20px;
     &:not(:last-child) {
       margin-bottom: 20px;
     }
-    @include for-size(tablet) {
-      padding: 31px 44px;
-    }
-    @include for-size(desktop) {
-      padding: 44px 43px;
-    }
-    /* &:nth-child(1) {
-      margin-top: -84px;
-    } */
   }
   @include for-size(tablet) {
+    padding: 31px 44px;
     &:not(:last-child) {
       margin-right: 20px;
     }
@@ -124,17 +125,15 @@
     width: 330px;
     height: auto;
     list-style: none;
+    padding: 44px 43px;
 
-    background: #ffffff;
-    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
-    border-radius: 24px;
+    &:not(:last-child) {
+      margin-right: 31px;
+    }
   }
-  &:not(:last-child) {
-    margin-right: 31px;
-  }
-  &:last-child {
-    margin-bottom: 20px;
-  }
+  /* &:nth-child(1) {
+    margin-top: -84px;
+  } */
 }
 .features__text {
   font-family: 'DM Sans';
@@ -273,20 +272,21 @@
     text-align: center;
   }
   @include for-size(desktop) {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 .btn1 {
-  width: 161px;
-  height: 44px;
+  /*  width: 161px;
+  height: 44px; */
   color: $main-color;
   background-color: #d41342;
   border-radius: 22px;
-  @include for-size(mobile) {
-    margin-top: 54px;
-    margin-bottom: 10px;
-  }
+  /*  @include for-size(mobile-only) {
+    
+  } */
   @include for-size(tablet) {
     width: 191px;
     height: 44px;
@@ -311,13 +311,18 @@
   }
 }
 .arrow {
-  position: relative;
-  /*   width: 10px; */
-  height: 8px;
+  width: 8px;
+  height: 12px;
+  fill: #ffffff;
   margin-left: 14px;
+  &:last-child {
+    color: #d41342;
+  }
 
-  /* border: 2px solid #ffffff; */
+  /* border: 2px solid; */
 }
 .fon {
-  background: url();
+  width: 1920px;
+  height: 382px;
+  background: url('../images/sectionbg.png');
 }
