@@ -129,6 +129,12 @@
     box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
     border-radius: 24px;
   }
+  &:not(:last-child) {
+    margin-right: 31px;
+  }
+  &:last-child {
+    margin-bottom: 20px;
+  }
 }
 .features__text {
   font-family: 'DM Sans';
@@ -263,9 +269,10 @@
   }
 }
 .button {
-  text-align: center;
-
   @include for-size(tablet) {
+    text-align: center;
+  }
+  @include for-size(desktop) {
     text-align: center;
   }
 }
@@ -274,7 +281,7 @@
   width: 161px;
   height: 44px;
   color: $main-color;
-  background: #d41342;
+  background-color: #d41342;
   border-radius: 22px;
   @include for-size(mobile) {
     margin-top: 54px;
@@ -302,4 +309,15 @@
     width: 198px;
     height: 44px;
   }
+}
+.arrow {
+  position: relative;
+  /*   width: 10px; */
+  height: 8px;
+  margin-left: 14px;
+
+  /* border: 2px solid #ffffff; */
+}
+.fon {
+  background: url();
 }
