@@ -1,22 +1,12 @@
 .location {
   background: $bg-section;
+  background-color: $bg-section;
 }
-/* .container {
-  @include for-size(mobile-only) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-} */
-.main {
-  /* display: block; */
 
-  /* margin-top: -84px; */
+.features {
+  display: block;
 
   @include for-size(mobile-only) {
-    /*  display: flex;
-    flex-direction: column;
-    justify-content: center; */
     margin-bottom: 54px;
     margin-left: 30px;
     margin-right: 30px;
@@ -31,39 +21,15 @@
   }
 }
 
-.main__food {
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 186%;
-  /* or 22px */
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.04em;
-
-  color: $main-color;
-  background: #c2e297;
-  border-radius: 4px;
-
-  margin-right: 120px;
-  margin-left: 20px;
-
-  margin-bottom: 25px;
-}
-.main__list {
+.main-list {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'DM Sans';
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 186%;
   color: $main-color;
-  background: #f0d1a5;
+  background: $bg-list;
   border-radius: 4px;
 
   @include for-size(mobile-only) {
@@ -83,17 +49,15 @@
     font-size: 16px;
   }
 }
-.main__FOODTRUCK {
+.main-foodtruck {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'DM Sans';
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 186%;
   color: $main-color;
-  background: #c2e297;
+  background: $bg-foodtruck;
   border-radius: 4px;
 
   @include for-size(mobile-only) {
@@ -133,6 +97,15 @@
     &:not(:last-child) {
       margin-right: 20px;
     }
+    &:nth-child(1) {
+      margin-top: -84px;
+    }
+    &:nth-child(2) {
+      margin-top: -84px;
+    }
+    &:nth-child(3) {
+      margin-top: -84px;
+    }
   }
   @include for-size(desktop) {
     width: 330px;
@@ -143,20 +116,20 @@
     &:not(:last-child) {
       margin-right: 31px;
     }
-  }
-  &:nth-child(1) {
-    margin-top: -84px;
-  }
-  &:nth-child(2) {
-    margin-top: -84px;
-  }
-  &:nth-child(3) {
-    margin-top: -84px;
+
+    &:nth-child(1) {
+      margin-top: -84px;
+    }
+    &:nth-child(2) {
+      margin-top: -84px;
+    }
+    &:nth-child(3) {
+      margin-top: -84px;
+    }
   }
 }
+
 .features__text {
-  font-family: 'DM Sans';
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 186%;
@@ -174,9 +147,7 @@
     margin-bottom: 10px;
   }
 }
-.text {
-  font-family: 'DM Sans';
-  font-style: normal;
+.features__text1 {
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
@@ -184,7 +155,7 @@
   color: $description-light;
 
   padding-bottom: 25px;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid $description-blok;
   @include for-size(mobile) {
     margin-bottom: 25px;
   }
@@ -200,7 +171,7 @@
 }
 .line {
   list-style-type: none;
-  border: 1px solid #e1e1e1;
+  border: 1px solid $description-blok;
   margin-left: 20px;
   margin-right: 21px;
   margin-bottom: 25px;
@@ -212,8 +183,6 @@
   }
 }
 .features__team {
-  font-family: 'DM Sans';
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 186%;
@@ -227,8 +196,6 @@
   }
 }
 .features__time {
-  font-family: 'DM Sans';
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 186%;
@@ -255,12 +222,12 @@
 .features-block1 {
   @include for-size(mobile) {
     padding-bottom: 25px;
-    border-bottom: 1px solid #e1e1e1;
+    border-bottom: 1px solid $description-blok;
     margin-bottom: 25px;
   }
   @include for-size(desktop) {
     padding-bottom: 32px;
-    border-bottom: 1px solid #e1e1e1;
+    border-bottom: 1px solid $description-blok;
     margin-bottom: 32px;
   }
 }
@@ -270,8 +237,6 @@
 .address__link {
   width: 179px;
   height: 37px;
-  font-family: DM Sans;
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
@@ -292,6 +257,7 @@
   }
   @include for-size(tablet) {
     margin-left: 33%;
+    margin-top: 81px;
   }
   @include for-size(desktop-only) {
     display: flex;
@@ -302,7 +268,7 @@
 
 .btn1 {
   color: $main-color;
-  background-color: #d41342;
+  background: $secondary-color;
   border-radius: 22px;
   @include for-size(mobile-only) {
     width: 161px;
@@ -311,9 +277,6 @@
   @include for-size(tablet) {
     width: 191px;
     height: 44px;
-    font-size: 16px;
-    line-height: 21px;
-    margin-right: 14px;
   }
   @include for-size(desktop) {
     width: 198px;
@@ -325,31 +288,57 @@
   height: 44px;
   border-radius: 22px;
   @include for-size(tablet) {
-    width: 191px;
+    width: 174px;
     height: 44px;
   }
   @include for-size(desktop) {
-    width: 198px;
+    width: 180px;
     height: 44px;
   }
 }
 .arrow {
+  display: flex;
+  align-content: center;
+  justify-content: center;
   width: 8px;
   height: 12px;
-  fill: #ffffff;
+  fill: $main-color;
+  margin-top: 3px;
   margin-left: 14px;
-  &:last-child {
-    color: #d41342;
-  }
 
-  /* border: 2px solid; */
+  @include for-size(mobile-only) {
+    margin-left: 8px;
+  }
 }
+.arrow1 {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 8px;
+  height: 12px;
+  fill: $secondary-color;
+  margin-top: 3px;
+  margin-left: 14px;
+
+  @include for-size(mobile-only) {
+    margin-left: 8px;
+  }
+}
+
 .fon {
   @include for-size(desktop) {
-    background-position: 50% 50%;
-    height: 382px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+
     margin-top: 84px;
     background-repeat: no-repeat;
     background-image: url('../images/sectionbg.png');
+  }
+  @include for-size(tablet) {
+    margin-top: 84px;
   }
 }
