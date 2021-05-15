@@ -10,29 +10,29 @@ const webpHtml = require('gulp-webp-html');
 const paths = require('./paths');
 
 const htmlminOptions = {
-  removeComments: true,
-  collapseWhitespace: true,
-  collapseBooleanAttributes: true,
-  removeAttributeQuotes: true,
-  removeRedundantAttributes: true,
-  removeEmptyAttributes: true,
-  removeScriptTypeAttributes: true,
-  removeStyleLinkTypeAttributes: true,
-  removeOptionalTags: true,
+    removeComments: true,
+    collapseWhitespace: true,
+    collapseBooleanAttributes: true,
+    removeAttributeQuotes: true,
+    removeRedundantAttributes: true,
+    removeEmptyAttributes: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    removeOptionalTags: true,
 };
 
 const cachebustOptions = {
-  type: 'timestamp',
+    type: 'timestamp',
 };
 
 const html = () => {
-  return gulp
-    .src(paths.src.html)
-    .pipe(fileInclude())
-    .pipe(webpHtml())
-    .pipe(mode.production(htmlmin(htmlminOptions)))
-    .pipe(mode.production(cachebust(cachebustOptions)))
-    .pipe(gulp.dest(paths.dist.html));
+    return gulp
+        .src(paths.src.html)
+        .pipe(fileInclude())
+        .pipe(webpHtml())
+        .pipe(mode.production(htmlmin(htmlminOptions)))
+        .pipe(mode.production(cachebust(cachebustOptions)))
+        .pipe(gulp.dest(paths.dist.html));
 };
 
 module.exports = html;
