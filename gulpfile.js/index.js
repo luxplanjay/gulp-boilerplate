@@ -9,8 +9,8 @@ const images = require('./images');
 const clean = require('./clean');
 
 const watch = done => {
-  gulp.watch(paths.watch.html, gulp.series(html, browserSync.reload));
-  gulp.watch(paths.watch.css, gulp.series(styles, browserSync.reload));
+  gulp.watch(paths.watch.html).on('change', gulp.series(html, browserSync.reload));
+  gulp.watch(paths.watch.css).on('change', gulp.series(styles, browserSync.reload));
   gulp.watch(paths.watch.images, gulp.series(images, browserSync.reload));
   done();
 };

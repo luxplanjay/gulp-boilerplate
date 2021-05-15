@@ -22,7 +22,7 @@ const imageminOptions = {
 const images = () => {
   return gulp
     .src(paths.src.images)
-    .pipe(newer(paths.dist.images))
+    .pipe(newer(paths.src.images))
     .pipe(webp({ quality: 75 }))
     .pipe(gulp.dest(paths.dist.images))
     .pipe(gulp.src(paths.src.images))
