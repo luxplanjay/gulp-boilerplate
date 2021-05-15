@@ -12,6 +12,9 @@ yarn-error.log*
 build/
 dist/
 
+# OS junk
+.DS_Store
+
 # Runtime data
 pids
 *.pid
