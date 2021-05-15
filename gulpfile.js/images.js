@@ -4,6 +4,7 @@ const newer = require('gulp-newer');
 const size = require('gulp-size');
 const webp = require('gulp-webp');
 const mode = require('gulp-mode')();
+const cache = require('gulp-cache');
 const paths = require('./paths');
 
 const imageminOptions = {
@@ -39,11 +40,13 @@ const images = () => {
         .pipe(gulp.src(paths.src.images))
         .pipe(
             mode.production(
-                imagemin([
-                    imagemin.mozjpeg(imageminOptions.mozjpeg),
-                    imagemin.optipng(imageminOptions.optipng),
-                    imagemin.svgo(imageminOptions.svgo),
-                ]),
+                cache(
+                    imagemin([
+                        imagemin.mozjpeg(imageminOptions.mozjpeg),
+                        imagemin.optipng(imageminOptions.optipng),
+                        imagemin.svgo(imageminOptions.svgo),
+                    ]),
+                ),
             ),
         )
         .pipe(size({ showFiles: true }))
