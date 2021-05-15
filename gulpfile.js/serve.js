@@ -6,7 +6,11 @@ const serve = () => {
         server: {
             baseDir: paths.distFolder,
         },
+        watch: true,
+        logLevel: 'info',
         logPrefix: 'DevServer',
+        logFileChanges: true,
+        reloadOnRestart: true,
         notify: false,
         cors: true,
         open: false,

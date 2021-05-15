@@ -17,12 +17,10 @@ const imageminOptions = {
     },
     svgo: {
         plugins: [
-            {
-                removeViewBox: false,
-            },
-            {
-                cleanupIDs: false,
-            },
+            { removeViewBox: false },
+            { cleanupIDs: false },
+            { removeComments: true },
+            { removeEmptyContainers: true },
         ],
     },
 };
