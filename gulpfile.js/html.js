@@ -1,6 +1,3 @@
-/*
- * Assembling .html files
- */
 const gulp = require('gulp');
 const fileInclude = require('gulp-file-include');
 const mode = require('gulp-mode')();

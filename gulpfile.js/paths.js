@@ -1,28 +1,33 @@
+const sourceFolder = 'src';
+const distFolder = 'dist';
+
 module.exports = {
+    sourceFolder,
+    distFolder,
     src: {
-        html: 'src/*.html',
-        css: 'src/sass/main.scss',
-        js: 'src/js/**/main.js',
-        images: 'src/images/**/*.{png,jpg,jpeg,webp,svg}',
-        fonts: 'src/fonts/**/*.{woff,woff2}',
+        html: `${sourceFolder}/*.html`,
+        css: `${sourceFolder}/sass/main.scss`,
+        js: `${sourceFolder}/js/**/main.js`,
+        images: `${sourceFolder}/images/**/*.{png,jpg,jpeg,webp,svg}`,
+        fonts: `${sourceFolder}/fonts/**/*.{woff,woff2}`,
     },
     watch: {
-        html: 'src/**/*.html',
-        css: ['src/sass/**/*.scss', 'src/sass/*.scss'],
-        js: 'src/js/**/*.js',
-        images: 'src/images/**/*.{png,jpg,jpeg,webp,svg}',
+        html: `${sourceFolder}/**/*.html`,
+        css: `${sourceFolder}/sass/**/*.scss`,
+        js: `${sourceFolder}/js/**/*.js`,
+        images: `${sourceFolder}/images/**/*.{png,jpg,jpeg,webp,svg}`,
     },
     dist: {
-        html: 'dist/',
-        css: 'dist/css',
-        js: 'dist/js',
-        images: 'dist/images',
-        fonts: 'dist/fonts',
+        html: `${distFolder}/`,
+        css: `${distFolder}/css`,
+        js: `${distFolder}/js`,
+        images: `${distFolder}/images`,
+        fonts: `${distFolder}/fonts`,
     },
     inject: {
-        html: 'dist/index.html',
-        css: 'dist/css/**/*.css',
-        js: 'dist/js/**/*.js',
+        html: `${distFolder}/index.html`,
+        css: `${distFolder}/css/**/*.css`,
+        js: `${distFolder}/js/**/*.js`,
     },
-    clean: 'dist/',
+    clean: `${distFolder}/`,
 };

@@ -15,15 +15,26 @@ const imageminOptions = {
         optimizationLevel: 5,
     },
     svgo: {
-        plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+        plugins: [
+            {
+                removeViewBox: false,
+            },
+            {
+                cleanupIDs: false,
+            },
+        ],
     },
+};
+
+const webpOptions = {
+    quality: 75,
 };
 
 const images = () => {
     return gulp
         .src(paths.src.images)
         .pipe(newer(paths.src.images))
-        .pipe(webp({ quality: 75 }))
+        .pipe(webp(webpOptions))
         .pipe(gulp.dest(paths.dist.images))
         .pipe(gulp.src(paths.src.images))
         .pipe(
