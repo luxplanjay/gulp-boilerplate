@@ -6,6 +6,7 @@ const fileInclude = require('gulp-file-include');
 const mode = require('gulp-mode')();
 const htmlmin = require('gulp-htmlmin');
 const cachebust = require('gulp-cache-bust');
+const webpHtml = require('gulp-webp-html');
 const paths = require('./paths');
 
 const htmlminOptions = {
@@ -28,6 +29,7 @@ const html = () => {
   return gulp
     .src(paths.src.html)
     .pipe(fileInclude())
+    .pipe(webpHtml())
     .pipe(mode.production(htmlmin(htmlminOptions)))
     .pipe(mode.production(cachebust(cachebustOptions)))
     .pipe(gulp.dest(paths.dist.html));
