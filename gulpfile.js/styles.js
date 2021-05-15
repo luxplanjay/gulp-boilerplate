@@ -17,6 +17,7 @@ const styles = () => {
     .pipe(mode.development(sourcemaps.init()))
     .pipe(
       sass({
+        outputStyle: 'compressed',
         sourceMap: true,
         precision: 3,
         errLogToConsole: true,
