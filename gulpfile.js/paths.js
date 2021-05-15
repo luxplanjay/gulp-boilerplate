@@ -3,14 +3,14 @@ module.exports = {
     html: 'src/*.html',
     css: 'src/sass/main.scss',
     js: 'src/js/**/main.js',
-    images: 'src/img/**/*.{png,jpg,jpeg,webp,svg}',
+    images: 'src/images/**/*.{png,jpg,jpeg,webp,svg}',
     fonts: 'src/fonts/**/*.{woff,woff2}',
   },
   watch: {
     html: 'src/**/*.html',
     css: ['src/sass/**/*.scss', 'src/sass/*.scss'],
     js: 'src/js/**/*.js',
-    images: 'src/img/**/*.{png,jpg,jpeg,webp,svg}',
+    images: 'src/images/**/*.{png,jpg,jpeg,webp,svg}',
   },
   dist: {
     html: 'dist/',
