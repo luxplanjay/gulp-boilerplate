@@ -1,15 +1,15 @@
 'use strict';
 
-const gulp = require('gulp');
-const paths = require('./paths');
-const { serve, browserSync } = require('./serve');
-const html = require('./html');
-const styles = require('./styles');
-const images = require('./images');
-const fonts = require('./fonts');
-const injectLinks = require('./inject');
-const clean = require('./clean');
-const sprite = require('./sprite');
+import gulp from 'gulp';
+import paths from './paths';
+import { serve, browserSync } from './serve';
+import html from './html';
+import styles from './styles';
+import images from './images';
+import fonts from './fonts';
+import injectLinks from './inject';
+import clean from './clean';
+import sprite from './sprite';
 
 const watch = done => {
     gulp.watch(paths.watch.html).on('change', gulp.series(html, browserSync.reload));

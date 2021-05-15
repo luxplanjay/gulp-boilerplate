@@ -1,6 +1,6 @@
-const gulp = require('gulp');
-const inject = require('gulp-inject');
-const paths = require('./paths');
+import gulp from 'gulp';
+import inject from 'gulp-inject';
+import paths from './paths';
 
 const injectLinks = () => {
     const sources = gulp.src([paths.inject.css], {

@@ -1,10 +1,12 @@
-const gulp = require('gulp');
-const imagemin = require('gulp-imagemin');
-const newer = require('gulp-newer');
-const size = require('gulp-size');
-const webp = require('gulp-webp');
-const mode = require('gulp-mode')();
-const paths = require('./paths');
+import gulp from 'gulp';
+import imagemin from 'gulp-imagemin';
+import newer from 'gulp-newer';
+import size from 'gulp-size';
+import webp from 'gulp-webp';
+import makeMode from 'gulp-mode';
+import paths from './paths';
+
+const mode = makeMode();
 
 const imageminOptions = {
     mozjpeg: {

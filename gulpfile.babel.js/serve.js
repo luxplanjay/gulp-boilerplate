@@ -1,5 +1,7 @@
-const browserSync = require('browser-sync').create();
-const paths = require('./paths');
+import BrowserSync from 'browser-sync';
+import paths from './paths';
+
+const browserSync = BrowserSync.create();
 
 const serve = () => {
     browserSync.init({

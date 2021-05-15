@@ -1,10 +1,12 @@
-const gulp = require('gulp');
-const fileInclude = require('gulp-file-include');
-const mode = require('gulp-mode')();
-const htmlmin = require('gulp-htmlmin');
-const cachebust = require('gulp-cache-bust');
-const webpHtml = require('gulp-webp-html');
-const paths = require('./paths');
+import gulp from 'gulp';
+import fileInclude from 'gulp-file-include';
+import htmlmin from 'gulp-htmlmin';
+import cachebust from 'gulp-cache-bust';
+import webpHtml from 'gulp-webp-html';
+import makeMode from 'gulp-mode';
+import paths from './paths';
+
+const mode = makeMode();
 
 const htmlminOptions = {
     removeComments: true,

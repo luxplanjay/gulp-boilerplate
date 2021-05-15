@@ -1,8 +1,8 @@
-const gulp = require('gulp');
-const svgSprite = require('gulp-svg-sprite');
-const notify = require('gulp-notify');
-const svgmin = require('gulp-svgmin');
-const paths = require('./paths');
+import gulp from 'gulp';
+import svgSprite from 'gulp-svg-sprite';
+import notify from 'gulp-notify';
+import svgmin from 'gulp-svgmin';
+import paths from './paths';
 
 const svgminOptions = {
     plugins: [

@@ -1,15 +1,17 @@
-const gulp = require('gulp');
-const sourcemaps = require('gulp-sourcemaps');
-const plumber = require('gulp-plumber');
-const sass = require('gulp-sass');
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-const groupMediaQueries = require('gulp-group-css-media-queries');
-const rename = require('gulp-rename');
-const notify = require('gulp-notify');
-const mode = require('gulp-mode')();
-const paths = require('./paths');
+import gulp from 'gulp';
+import sourcemaps from 'gulp-sourcemaps';
+import plumber from 'gulp-plumber';
+import sass from 'gulp-sass';
+import postcss from 'gulp-postcss';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
+import groupMediaQueries from 'gulp-group-css-media-queries';
+import rename from 'gulp-rename';
+import notify from 'gulp-notify';
+import makeMode from 'gulp-mode';
+import paths from './paths';
+
+const mode = makeMode();
 
 const sassOptions = {
     outputStyle: 'compressed',
