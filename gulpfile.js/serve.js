@@ -17,4 +17,7 @@ const serve = () => {
   });
 };
 
-module.exports = serve;
+module.exports = {
+  serve,
+  browserSync,
+};

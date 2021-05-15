@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env PORT=7070 gulp --development",
-    "build": "gulp build --production"
+    "start": "cross-env PORT=7070 gulp start --development"
   },
   "homepage": "https://luxplanjay.github.io/gulp-boilerpalte",
   "repository": {
@@ -20,6 +19,7 @@
   "devDependencies": {
     "browser-sync": "^2.26.14",
     "cross-env": "^7.0.3",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-cache-bust": "^1.4.1",
     "gulp-file-include": "^2.3.0",
