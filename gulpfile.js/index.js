@@ -7,6 +7,7 @@ const html = require('./html');
 const styles = require('./styles');
 const images = require('./images');
 const fonts = require('./fonts');
+const injectLinks = require('./inject');
 const clean = require('./clean');
 
 const watch = done => {
@@ -17,6 +18,13 @@ const watch = done => {
     done();
 };
 
-exports.start = gulp.series(clean, images, gulp.parallel(fonts, styles, html), watch, serve);
+exports.start = gulp.series(
+    clean,
+    images,
+    gulp.parallel(fonts, styles, html),
+    injectLinks,
+    watch,
+    serve,
+);
 
-exports.build = gulp.series(clean, images, gulp.parallel(fonts, styles, html));
+exports.build = gulp.series(clean, images, gulp.parallel(fonts, styles, html), injectLinks);

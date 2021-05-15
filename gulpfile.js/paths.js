@@ -16,9 +16,10 @@ module.exports = {
         css: `${sourceFolder}/sass/**/*.scss`,
         js: `${sourceFolder}/js/**/*.js`,
         images: `${sourceFolder}/images/**/*.{png,jpg,jpeg,webp,svg}`,
+        fonts: `${sourceFolder}/fonts/**/*.{woff,woff2}`,
     },
     dist: {
-        html: `${distFolder}/`,
+        html: `${distFolder}`,
         css: `${distFolder}/css`,
         js: `${distFolder}/js`,
         images: `${distFolder}/images`,
@@ -29,5 +30,5 @@ module.exports = {
         css: `${distFolder}/css/**/*.css`,
         js: `${distFolder}/js/**/*.js`,
     },
-    clean: `${distFolder}/`,
+    clean: `${distFolder}`,
 };
