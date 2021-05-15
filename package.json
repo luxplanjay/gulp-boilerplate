@@ -24,7 +24,6 @@
         "cssnano": "^5.0.2",
         "del": "^6.0.0",
         "gulp": "^4.0.2",
-        "gulp-cache": "^1.1.3",
         "gulp-cache-bust": "^1.4.1",
         "gulp-file-include": "^2.3.0",
         "gulp-group-css-media-queries": "^1.2.2",
