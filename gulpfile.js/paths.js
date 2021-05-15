@@ -8,7 +8,7 @@ module.exports = {
   },
   watch: {
     html: 'src/**/*.html',
-    css: 'src/sass/**/*.scss',
+    css: ['src/sass/**/*.scss', 'src/sass/*.scss'],
     js: 'src/js/**/*.js',
     images: 'src/img/**/*.{png,jpg,jpeg,webp,svg}',
   },
