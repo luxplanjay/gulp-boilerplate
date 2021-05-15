@@ -40,6 +40,7 @@
         "gulp-sass": "^4.1.0",
         "gulp-size": "^4.0.0",
         "gulp-sourcemaps": "^3.0.0",
+        "gulp-svg-sprite": "^1.5.0",
         "gulp-webp": "^4.0.1",
         "gulp-webp-html": "^1.0.2",
         "postcss": "^8.2.15"

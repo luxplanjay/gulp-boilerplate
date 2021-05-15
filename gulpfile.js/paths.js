@@ -8,14 +8,22 @@ module.exports = {
         html: `${sourceFolder}/*.html`,
         css: `${sourceFolder}/sass/main.scss`,
         js: `${sourceFolder}/js/**/main.js`,
-        images: `${sourceFolder}/images/**/*.{png,jpg,jpeg,webp,svg}`,
+        images: [
+            `${sourceFolder}/images/**/*.{png,jpg,jpeg,webp,svg}`,
+            `!${sourceFolder}/images/svg-sprite/**/*.svg`,
+        ],
+        sprite: `${sourceFolder}/images/svg-sprite/**/*.svg`,
         fonts: `${sourceFolder}/fonts/**/*.{woff,woff2}`,
     },
     watch: {
         html: `${sourceFolder}/**/*.html`,
         css: `${sourceFolder}/sass/**/*.scss`,
         js: `${sourceFolder}/js/**/*.js`,
-        images: `${sourceFolder}/images/**/*.{png,jpg,jpeg,webp,svg}`,
+        images: [
+            `${sourceFolder}/images/**/*.{png,jpg,jpeg,webp,svg}`,
+            `!${sourceFolder}/images/svg-sprite/**/*.svg`,
+        ],
+        sprite: `${sourceFolder}/images/svg-sprite/**/*.svg`,
         fonts: `${sourceFolder}/fonts/**/*.{woff,woff2}`,
     },
     dist: {

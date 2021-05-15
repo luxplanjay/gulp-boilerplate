@@ -32,7 +32,7 @@ const webpOptions = {
 const images = () => {
     return gulp
         .src(paths.src.images)
-        .pipe(newer(paths.src.images))
+        .pipe(newer(paths.src.images.join(' ')))
         .pipe(webp(webpOptions))
         .pipe(gulp.dest(paths.dist.images))
         .pipe(gulp.src(paths.src.images))
