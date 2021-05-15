@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env PORT=7070 gulp start --development"
+    "start": "cross-env PORT=7070 gulp start --development",
+    "build": "gulp build --production"
   },
   "homepage": "https://luxplanjay.github.io/gulp-boilerpalte",
   "repository": {
@@ -27,12 +28,17 @@
     "gulp-file-include": "^2.3.0",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^7.1.0",
     "gulp-mode": "^1.1.0",
+    "gulp-newer": "^1.4.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
+    "gulp-size": "^4.0.0",
     "gulp-sourcemaps": "^3.0.0",
+    "gulp-webp": "^4.0.1",
+    "gulp-webp-html": "^1.0.2",
     "postcss": "^8.2.15"
   }
 }
