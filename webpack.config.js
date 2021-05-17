@@ -1,4 +1,5 @@
 import fs from 'fs';
+import yargs from 'yargs';
 
 const createEntryConfig = dirPath => {
     return fs
@@ -11,8 +12,12 @@ const createEntryConfig = dirPath => {
         }, {});
 };
 
+const isProdMode = yargs.argv.production;
+
 export default {
     entry: createEntryConfig('./src/js/'),
+    mode: isProdMode ? 'production' : 'development',
+    devtool: isProdMode ? false : 'inline-source-map',
     output: {
         filename: '[name].[contenthash].bundle.js',
         chunkFilename: '[name].[contenthash].chunk.js',
