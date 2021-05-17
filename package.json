@@ -28,6 +28,7 @@
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-cache-bust": "^1.4.1",
+    "gulp-cheerio": "^1.0.0",
     "gulp-file-include": "^2.3.0",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
