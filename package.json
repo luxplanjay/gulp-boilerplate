@@ -8,15 +8,15 @@
     "build": "gulp build --production",
     "lint-styles": "stylelint './src/sass/**/*.scss' --syntax scss --fix"
   },
-  "homepage": "https://luxplanjay.github.io/gulp-boilerpalte",
+  "homepage": "https://luxplanjay.github.io/gulp-boilerplate",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luxplanjay/gulp-boilerpalte.git"
+    "url": "git+https://github.com/luxplanjay/gulp-boilerplate.git"
   },
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luxplanjay/gulp-boilerpalte/issues"
+    "url": "https://github.com/luxplanjay/gulp-boilerplate/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.14.2",
