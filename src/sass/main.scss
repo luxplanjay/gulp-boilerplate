@@ -1,4 +1,5 @@
 /*
- * Все паршалы импортировать в этот файл
+ * Import all top level partials here
  */
-@import 'scaffolding.scss';
+@import 'base/fonts.scss';
+@import 'base/scaffolding.scss';
