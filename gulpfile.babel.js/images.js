@@ -3,10 +3,8 @@ import imagemin from 'gulp-imagemin';
 import newer from 'gulp-newer';
 import size from 'gulp-size';
 import webp from 'gulp-webp';
-import makeMode from 'gulp-mode';
+import mode from 'gulp-mode';
 import paths from './paths';
-
-const mode = makeMode();
 
 const imageminOptions = {
     mozjpeg: {
@@ -38,7 +36,7 @@ const images = () => {
         .pipe(gulp.dest(paths.dist.images))
         .pipe(gulp.src(paths.src.images))
         .pipe(
-            mode.production(
+            mode().production(
                 imagemin([
                     imagemin.mozjpeg(imageminOptions.mozjpeg),
                     imagemin.optipng(imageminOptions.optipng),

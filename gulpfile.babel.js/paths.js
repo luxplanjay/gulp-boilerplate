@@ -7,7 +7,7 @@ const paths = {
     src: {
         html: `${sourceFolder}/*.html`,
         css: `${sourceFolder}/sass/main.scss`,
-        js: `${sourceFolder}/js/**/main.js`,
+        js: `${sourceFolder}/js/*.js`,
         images: [
             `${sourceFolder}/images/**/*.{png,jpg,jpeg,webp,svg}`,
             `!${sourceFolder}/images/svg-sprite/**/*.svg`,

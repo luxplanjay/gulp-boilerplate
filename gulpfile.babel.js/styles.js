@@ -8,10 +8,8 @@ import cssnano from 'cssnano';
 import groupMediaQueries from 'gulp-group-css-media-queries';
 import rename from 'gulp-rename';
 import notify from 'gulp-notify';
-import makeMode from 'gulp-mode';
+import mode from 'gulp-mode';
 import paths from './paths';
-
-const mode = makeMode();
 
 const sassOptions = {
     outputStyle: 'compressed',
@@ -24,11 +22,11 @@ const styles = () => {
     return gulp
         .src(paths.src.css)
         .pipe(plumber())
-        .pipe(mode.development(sourcemaps.init()))
+        .pipe(mode().development(sourcemaps.init()))
         .pipe(sass(sassOptions).on('error', notify.onError()))
-        .pipe(mode.production(groupMediaQueries()))
-        .pipe(mode.production(postcss([autoprefixer(), cssnano()])))
-        .pipe(mode.development(sourcemaps.write()))
+        .pipe(mode().production(groupMediaQueries()))
+        .pipe(mode().production(postcss([autoprefixer(), cssnano()])))
+        .pipe(mode().development(sourcemaps.write()))
         .pipe(rename('styles.min.css'))
         .pipe(gulp.dest(paths.dist.css));
 };

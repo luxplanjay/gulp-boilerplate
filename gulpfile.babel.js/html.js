@@ -3,10 +3,8 @@ import fileInclude from 'gulp-file-include';
 import htmlmin from 'gulp-htmlmin';
 import cachebust from 'gulp-cache-bust';
 import webpHtml from 'gulp-webp-html';
-import makeMode from 'gulp-mode';
+import mode from 'gulp-mode';
 import paths from './paths';
-
-const mode = makeMode();
 
 const htmlminOptions = {
     removeComments: true,
@@ -29,8 +27,8 @@ const html = () => {
         .src(paths.src.html)
         .pipe(fileInclude())
         .pipe(webpHtml())
-        .pipe(mode.production(htmlmin(htmlminOptions)))
-        .pipe(mode.production(cachebust(cachebustOptions)))
+        .pipe(mode().production(htmlmin(htmlminOptions)))
+        .pipe(mode().production(cachebust(cachebustOptions)))
         .pipe(gulp.dest(paths.dist.html));
 };
 
