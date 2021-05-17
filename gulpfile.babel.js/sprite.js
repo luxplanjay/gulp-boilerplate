@@ -42,4 +42,4 @@ const sprite = () => {
         .pipe(gulp.dest(paths.dist.images));
 };
 
-module.exports = sprite;
+export default sprite;

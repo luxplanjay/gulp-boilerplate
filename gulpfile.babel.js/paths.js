@@ -1,7 +1,7 @@
 const sourceFolder = 'src';
 const distFolder = 'dist';
 
-module.exports = {
+const paths = {
     sourceFolder,
     distFolder,
     src: {
@@ -40,3 +40,5 @@ module.exports = {
     },
     clean: `${distFolder}`,
 };
+
+export default paths;

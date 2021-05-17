@@ -34,4 +34,4 @@ const html = () => {
         .pipe(gulp.dest(paths.dist.html));
 };
 
-module.exports = html;
+export default html;

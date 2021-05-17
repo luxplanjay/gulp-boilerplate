@@ -1,5 +1,3 @@
-'use strict';
-
 import gulp from 'gulp';
 import paths from './paths';
 import { serve, browserSync } from './serve';
@@ -20,7 +18,7 @@ const watch = done => {
     done();
 };
 
-exports.start = gulp.series(
+export const start = gulp.series(
     clean,
     gulp.parallel(images, sprite, fonts, styles, html),
     injectLinks,
@@ -28,4 +26,8 @@ exports.start = gulp.series(
     serve,
 );
 
-exports.build = gulp.series(clean, gulp.parallel(images, sprite, fonts, styles, html), injectLinks);
+export const build = gulp.series(
+    clean,
+    gulp.parallel(images, sprite, fonts, styles, html),
+    injectLinks,
+);

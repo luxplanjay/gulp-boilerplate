@@ -13,4 +13,4 @@ const injectLinks = () => {
         .pipe(gulp.dest(paths.dist.html));
 };
 
-module.exports = injectLinks;
+export default injectLinks;

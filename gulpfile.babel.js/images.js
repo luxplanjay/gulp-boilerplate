@@ -50,4 +50,4 @@ const images = () => {
         .pipe(gulp.dest(paths.dist.images));
 };
 
-module.exports = images;
+export default images;

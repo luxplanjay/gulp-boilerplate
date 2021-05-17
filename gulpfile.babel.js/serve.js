@@ -1,9 +1,9 @@
 import BrowserSync from 'browser-sync';
 import paths from './paths';
 
-const browserSync = BrowserSync.create();
+export const browserSync = BrowserSync.create();
 
-const serve = () => {
+export const serve = () => {
     browserSync.init({
         server: {
             baseDir: paths.distFolder,
@@ -19,9 +19,4 @@ const serve = () => {
         ui: false,
         port: process.env.PORT ?? 7070,
     });
-};
-
-module.exports = {
-    serve,
-    browserSync,
 };

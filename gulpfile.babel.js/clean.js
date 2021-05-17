@@ -5,4 +5,4 @@ const clean = () => {
     return del(paths.clean);
 };
 
-module.exports = clean;
+export default clean;

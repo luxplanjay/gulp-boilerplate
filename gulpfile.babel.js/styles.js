@@ -33,4 +33,4 @@ const styles = () => {
         .pipe(gulp.dest(paths.dist.css));
 };
 
-module.exports = styles;
+export default styles;
