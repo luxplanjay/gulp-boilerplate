@@ -51,6 +51,7 @@
     "postcss": "^8.2.15",
     "stylelint": "^13.13.1",
     "stylelint-config-standard-scss": "^1.1.0",
-    "stylelint-scss": "^3.19.0"
+    "stylelint-scss": "^3.19.0",
+    "webpack-stream": "^6.1.2"
   }
 }

@@ -8,6 +8,7 @@ import fonts from './fonts';
 import injectLinks from './inject';
 import clean from './clean';
 import sprite from './sprite';
+import scripts from './scripts';
 
 const watch = done => {
     gulp.watch(paths.watch.html).on('change', gulp.series(html, browserSync.reload));
@@ -20,7 +21,7 @@ const watch = done => {
 
 export const start = gulp.series(
     clean,
-    gulp.parallel(images, sprite, fonts, styles, html),
+    gulp.parallel(images, sprite, fonts, styles, scripts, html),
     injectLinks,
     watch,
     serve,
@@ -28,6 +29,6 @@ export const start = gulp.series(
 
 export const build = gulp.series(
     clean,
-    gulp.parallel(images, sprite, fonts, styles, html),
+    gulp.parallel(images, sprite, fonts, styles, scripts, html),
     injectLinks,
 );
