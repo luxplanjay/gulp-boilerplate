@@ -5,9 +5,9 @@ const paths = {
     sourceFolder,
     distFolder,
     src: {
-        html: `${sourceFolder}/*.html`,
-        css: `${sourceFolder}/sass/main.scss`,
-        js: `${sourceFolder}/js/*.js`,
+        html: `${sourceFolder}/pages/*.html`,
+        css: `${sourceFolder}/sass`,
+        js: `${sourceFolder}/*.js`,
         images: [
             `${sourceFolder}/images/**/*.{png,jpg,jpeg,webp,svg}`,
             `!${sourceFolder}/images/svg-sprite/**/*.svg`,
@@ -18,7 +18,7 @@ const paths = {
     watch: {
         html: `${sourceFolder}/**/*.html`,
         css: `${sourceFolder}/sass/**/*.scss`,
-        js: `${sourceFolder}/js/**/*.js`,
+        js: `${sourceFolder}/**/*.js`,
         images: [
             `${sourceFolder}/images/**/*.{png,jpg,jpeg,webp,svg}`,
             `!${sourceFolder}/images/svg-sprite/**/*.svg`,
@@ -32,11 +32,6 @@ const paths = {
         js: `${distFolder}/js`,
         images: `${distFolder}/images`,
         fonts: `${distFolder}/fonts`,
-    },
-    inject: {
-        html: `${distFolder}/index.html`,
-        css: `${distFolder}/css/**/*.css`,
-        js: `${distFolder}/js/**/*.js`,
     },
     clean: `${distFolder}`,
 };

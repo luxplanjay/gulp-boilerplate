@@ -1,3 +1,4 @@
+import fs from 'fs';
 import gulp from 'gulp';
 import sourcemaps from 'gulp-sourcemaps';
 import plumber from 'gulp-plumber';
@@ -19,16 +20,22 @@ const sassOptions = {
 };
 
 const styles = () => {
-    return gulp
-        .src(paths.src.css)
-        .pipe(plumber())
-        .pipe(mode().development(sourcemaps.init()))
-        .pipe(sass(sassOptions).on('error', notify.onError()))
-        .pipe(mode().production(groupMediaQueries()))
-        .pipe(mode().production(postcss([autoprefixer(), cssnano()])))
-        .pipe(mode().development(sourcemaps.write()))
-        .pipe(rename('styles.min.css'))
-        .pipe(gulp.dest(paths.dist.css));
+    return Promise.resolve(
+        fs
+            .readdirSync(paths.src.css)
+            .filter(filename => filename.endsWith('.scss'))
+            .forEach(filename => {
+                gulp.src(`${paths.src.css}/${filename}`)
+                    .pipe(plumber())
+                    .pipe(mode().development(sourcemaps.init()))
+                    .pipe(sass(sassOptions).on('error', notify.onError()))
+                    .pipe(mode().production(groupMediaQueries()))
+                    .pipe(mode().production(postcss([autoprefixer(), cssnano()])))
+                    .pipe(mode().development(sourcemaps.write()))
+                    .pipe(rename(`${filename.replace('.scss', '')}.min.css`))
+                    .pipe(gulp.dest(paths.dist.css));
+            }),
+    );
 };
 
 export default styles;

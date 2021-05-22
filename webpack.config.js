@@ -15,7 +15,7 @@ const createEntryConfig = dirPath => {
 const isProductionMode = yargs.argv.production;
 
 export default {
-    entry: createEntryConfig('./src/js/'),
+    entry: createEntryConfig('./src/'),
     mode: isProductionMode ? 'production' : 'development',
     devtool: isProductionMode ? false : 'inline-source-map',
     output: {

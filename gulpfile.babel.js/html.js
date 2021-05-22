@@ -10,12 +10,8 @@ const htmlminOptions = {
     removeComments: true,
     collapseWhitespace: true,
     collapseBooleanAttributes: true,
-    removeAttributeQuotes: true,
     removeRedundantAttributes: true,
     removeEmptyAttributes: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true,
-    removeOptionalTags: true,
 };
 
 const cachebustOptions = {
